@@ -16,7 +16,7 @@
   /* 2 */
   border-style: solid;
   /* 2 */
-  border-color: currentColor;
+  border-color: #e5e7eb;
   /* 2 */
 }
 
@@ -42,7 +42,7 @@ html {
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: Inconsolata, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
   /* 4 */
 }
 
@@ -423,12 +423,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: none;
 }
 
-body{
-  letter-spacing: 0.015em;
-  --tw-text-opacity: 1;
-  color: rgb(34 34 34 / var(--tw-text-opacity));
-}
-
 *, ::before, ::after {
   --tw-translate-x: 0;
   --tw-translate-y: 0;
@@ -474,20 +468,25 @@ body{
   --tw-backdrop-sepia:  ;
 }
 
-.col-span-4 {
-  grid-column: span 4 / span 4;
+.m-auto {
+  margin: auto;
 }
 
-.col-start-5 {
-  grid-column-start: 5;
+.mb-4 {
+  margin-bottom: 1rem;
 }
 
-.grid {
-  display: grid;
+.mr-1 {
+  margin-right: 0.25rem;
 }
 
-.grid-cols-12 {
-  grid-template-columns: repeat(12, minmax(0, 1fr));
+.max-w-lg {
+  max-width: 32rem;
+}
+
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .pt-40 {
@@ -502,7 +501,7 @@ body{
   padding-bottom: 1rem;
 }
 
-.font-sans {
+.font-title {
   font-family: Inconsolata, Helvetica, sans-serif;
 }
 
@@ -511,16 +510,35 @@ body{
   line-height: 2rem;
 }
 
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.font-normal {
+  font-weight: 300;
+}
+
 .font-bold {
   font-weight: 700;
 }
 
-p a {
+.italic {
+  font-style: italic;
+}
+
+.tracking-wide {
+  letter-spacing: 0.015em;
+}
+
+.text-black {
   --tw-text-opacity: 1;
-  color: rgb(59 130 246 / var(--tw-text-opacity));
-  -webkit-text-decoration-line: underline;
-          text-decoration-line: underline;
-  font-weight:  600;
+  color: rgb(34 34 34 / var(--tw-text-opacity));
+}
+
+.no-underline {
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
 }
 
 h1 span{
@@ -534,4 +552,23 @@ h1:hover span{
   transform: rotate(30deg);
   transition: 0.2s ease-out;
   padding-left: 2px;
+}
+
+p strong{
+  font-weight:  700;
+}
+
+p a {
+  --tw-text-opacity: 1;
+  color: rgb(35 87 205 / var(--tw-text-opacity));
+  text-decoration: underline;
+}
+
+.status span{
+  color: #01bd01;
+}
+
+.hover\:underline:hover {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
 }

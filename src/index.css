@@ -2,26 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-	body{
-		letter-spacing: 0.015em;
-		@apply text-black;
-	}
-}
-
-p a{
-	@apply underline text-blue;
-	font-weight:  600;
-}
-
 h1 span{
 	display: inline-block;
 	transform: rotate(0deg);
 	transform-origin: left;
 	transition: 0.2s;
 }
+
 h1:hover span{
 	transform: rotate(30deg);
 	transition: 0.2s ease-out;
 	padding-left: 2px;
+}
+
+p strong{
+	font-weight:  700;
+}
+
+p a{
+	@apply text-blue;
+	text-decoration: underline;	
+}
+
+.status span{
+	color: #01bd01;
+
 }
