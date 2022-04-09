@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 h1 span{
-	display: inline-block;
 	transform: rotate(0deg);
 	transform-origin: left;
 	transition: 0.2s;
@@ -16,15 +15,10 @@ h1:hover span{
 }
 
 p strong{
-	font-weight:  700;
+	font-weight: 700;
 }
 
 p a{
 	@apply text-blue;
 	text-decoration: underline;	
-}
-
-.status span{
-	color: #01bd01;
-
 }

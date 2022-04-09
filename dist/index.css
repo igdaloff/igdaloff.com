@@ -480,6 +480,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: 0.25rem;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 .max-w-lg {
   max-width: 32rem;
 }
@@ -489,8 +493,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-right: 2rem;
 }
 
-.pt-40 {
-  padding-top: 10rem;
+.pt-20 {
+  padding-top: 5rem;
 }
 
 .pb-8 {
@@ -510,11 +514,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 2rem;
 }
 
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
 .font-normal {
   font-weight: 300;
 }
@@ -527,6 +526,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-style: italic;
 }
 
+.leading-\[1\.65rem\] {
+  line-height: 1.65rem;
+}
+
 .tracking-wide {
   letter-spacing: 0.015em;
 }
@@ -536,13 +539,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(34 34 34 / var(--tw-text-opacity));
 }
 
-.no-underline {
-  -webkit-text-decoration-line: none;
-          text-decoration-line: none;
+.text-\[\#00b100\] {
+  --tw-text-opacity: 1;
+  color: rgb(0 177 0 / var(--tw-text-opacity));
 }
 
 h1 span{
-  display: inline-block;
   transform: rotate(0deg);
   transform-origin: left;
   transition: 0.2s;
@@ -555,17 +557,13 @@ h1:hover span{
 }
 
 p strong{
-  font-weight:  700;
+  font-weight: 700;
 }
 
 p a {
   --tw-text-opacity: 1;
   color: rgb(35 87 205 / var(--tw-text-opacity));
   text-decoration: underline;
-}
-
-.status span{
-  color: #01bd01;
 }
 
 .hover\:underline:hover {
