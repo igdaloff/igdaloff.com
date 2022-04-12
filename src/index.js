@@ -1,6 +1,5 @@
 const { GoogleSpreadsheet } = require('google-spreadsheet'); // More info https://theoephraim.github.io/node-google-spreadsheet/#/classes/google-spreadsheet
 
-const creds = require('../client_secret.json');
 const doc = new GoogleSpreadsheet('1xBjImwNyfIwpyTS9_scCFO3dWXdn5xeyPYOIDTN8UKs');
 
 
@@ -12,8 +11,8 @@ async function accessSpreadsheet(){
   await doc.useServiceAccountAuth({
     // client_email: creds.client_email,
     // private_key: creds.private_key
-    client_email: CLIENT_EMAIL,
-    private_key: PRIVATE_KEY    
+    client_email: process.env.CLIENT_EMAIL,
+    private_key: process.env.PRIVATE_KEY    
   });
 
   await doc.loadInfo(); //Loads document properties and worksheets
