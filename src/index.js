@@ -1,11 +1,7 @@
 const { GoogleSpreadsheet } = require('google-spreadsheet'); // More info https://theoephraim.github.io/node-google-spreadsheet/#/classes/google-spreadsheet
 
+// const creds = require('../client_secret.json');
 const doc = new GoogleSpreadsheet('1xBjImwNyfIwpyTS9_scCFO3dWXdn5xeyPYOIDTN8UKs');
-
-
-// fetch(`/.netlify/functions/fetch-sheet?name="Bob"`)
-//   .then(res => {console.log(response.json())})
-
 
 async function accessSpreadsheet(){
   await doc.useServiceAccountAuth({
