@@ -21,13 +21,16 @@ async function accessSpreadsheet(){
   let latestArtistUrl;
 
   //Add spreadsheet data to HTML
-  if(sheet){
-    latestArtistName = rowsArray[rowsArray.length - 1][1].Artist;
-    latestArtistUrl = rowsArray[rowsArray.length - 1][1].SpotifyUrl;    
-  } else {
-    latestArtistName = "Pulp";
-    latestArtistUrl = "https://open.spotify.com/artist/36E7oYfz3LLRto6l2WmDcD?si=ZIl-fSHBQ_yChwsvEoHvkA";
-  }
+  latestArtistName = rowsArray[rowsArray.length - 1][1].Artist;
+  latestArtistUrl = rowsArray[rowsArray.length - 1][1].SpotifyUrl;   
+
+  // if(sheet){
+  //   latestArtistName = rowsArray[rowsArray.length - 1][1].Artist;
+  //   latestArtistUrl = rowsArray[rowsArray.length - 1][1].SpotifyUrl;    
+  // } else {
+  //   latestArtistName = "Pulp";
+  //   latestArtistUrl = "https://open.spotify.com/artist/36E7oYfz3LLRto6l2WmDcD?si=ZIl-fSHBQ_yChwsvEoHvkA";
+  // }
 
   document.querySelector('.listening-to').innerHTML = latestArtistName;
   document.querySelector('.listening-to').href = latestArtistUrl;    
