@@ -2,7 +2,7 @@ require('dotenv').config();
 const { GoogleSpreadsheet } = require('google-spreadsheet'); // More info https://theoephraim.github.io/node-google-spreadsheet/#/classes/google-spreadsheet
 
 const client_email = process.env.CLIENT_EMAIL;
-const private_key = process.env.PRIVATE_KEY.replace(/\\n/gm, '\n');
+const private_key = process.env.PRIVATE_KEY;
 let latestArtistName = "Bonobo";
 let latestArtistURL = "https://open.spotify.com/artist/0cmWgDlu9CwTgxPhf403hb?si=j08QcnXbRYWOfAZIzlUD7w";
 
@@ -34,10 +34,6 @@ exports.handler = async (event, context) => {
       message: "It worked",
       artistName: latestArtistName,
       artistUrl: latestArtistUrl
-    }),
-    headers: JSON.stringify({
-      'Access-Control-Allow-Origin': '*', 
-      'Access-Control-Allow-Credentials': 'true' 
     })
   }
 }
