@@ -7,6 +7,7 @@ const private_key = process.env.PRIVATE_KEY;
 exports.handler = async (event, context) => {
 
   console.log('the handler ran!');
+  return ! (typeof window != 'undefined' && window.document);
   // const creds = require('../client_secret.json');
   const doc = new GoogleSpreadsheet('1xBjImwNyfIwpyTS9_scCFO3dWXdn5xeyPYOIDTN8UKs');
 
