@@ -2,7 +2,6 @@ require('dotenv').config();
 
 const { GoogleSpreadsheet } = require('google-spreadsheet'); // More info https://theoephraim.github.io/node-google-spreadsheet/#/classes/google-spreadsheet
 
-console.log(process.env.PRIVATE_KEY);
 const client_email = process.env.CLIENT_EMAIL;
 const private_key = process.env.PRIVATE_KEY.replace(/\\n/gm, "\n");
 
