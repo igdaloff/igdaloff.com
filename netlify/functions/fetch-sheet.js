@@ -4,7 +4,7 @@ const { GoogleSpreadsheet } = require('google-spreadsheet'); // More info https:
 
 console.log(process.env.PRIVATE_KEY);
 const client_email = process.env.CLIENT_EMAIL;
-const private_key = process.env.PRIVATE_KEY;
+const private_key = process.env.PRIVATE_KEY.replace(/\\n/gm, "\n");
 
 let latestArtistName = "Bonobo";
 let latestArtistURL = "https://open.spotify.com/artist/0cmWgDlu9CwTgxPhf403hb?si=j08QcnXbRYWOfAZIzlUD7w";
