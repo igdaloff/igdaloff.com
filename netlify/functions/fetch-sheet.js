@@ -1,8 +1,9 @@
 require('dotenv').config();
+import { Buffer } from 'buffer';
 const { GoogleSpreadsheet } = require('google-spreadsheet'); // More info https://theoephraim.github.io/node-google-spreadsheet/#/classes/google-spreadsheet
 
 const client_email = process.env.CLIENT_EMAIL;
-const private_key = process.env.PRIVATE_KEY;
+const private_key = new Buffer(process.env.PRIVATE_KEY, 'base64').toString('utf-8');
 let latestArtistName = "Bonobo";
 let latestArtistURL = "https://open.spotify.com/artist/0cmWgDlu9CwTgxPhf403hb?si=j08QcnXbRYWOfAZIzlUD7w";
 
