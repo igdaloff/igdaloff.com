@@ -1,18 +1,22 @@
+require('dotenv').config();
+  const { GoogleSpreadsheet } = require('google-spreadsheet'); // More info https://theoephraim.github.io/node-google-spreadsheet/#/classes/google-spreadsheet
+
+const client_email = process.env.CLIENT_EMAIL;
+const private_key = process.env.PRIVATE_KEY;
 
 exports.handler = async (event, context) => {
-
-  console.log(event);
-  const { GoogleSpreadsheet } = require('google-spreadsheet'); // More info https://theoephraim.github.io/node-google-spreadsheet/#/classes/google-spreadsheet
 
   // const creds = require('../client_secret.json');
   const doc = new GoogleSpreadsheet('1xBjImwNyfIwpyTS9_scCFO3dWXdn5xeyPYOIDTN8UKs');
 
   async function accessSpreadsheet(){
     await doc.useServiceAccountAuth({
+      
       // client_email: creds.client_email,
-      // private_key: creds.private_key
-      client_email: process.env.CLIENT_EMAIL,
-      private_key: process.env.PRIVATE_KEY    
+      // private_key: creds.private_key,
+
+      client_email: client_email,
+      private_key: private_key
     });
 
     await doc.loadInfo(); //Loads document properties and worksheets
