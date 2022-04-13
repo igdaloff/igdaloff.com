@@ -36,8 +36,8 @@ exports.handler = async (event, context) => {
       artistUrl: latestArtistUrl
     }),
     headers: JSON.stringify({
-        'Content-Type': 'application/JSON',
-        'Access-Control-Allow-Origin': 'true'
+      'Access-Control-Allow-Origin': '*', 
+      'Access-Control-Allow-Credentials': 'true' 
     })
   }
 }
