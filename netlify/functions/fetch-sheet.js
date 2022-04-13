@@ -34,6 +34,10 @@ exports.handler = async (event, context) => {
       message: "It worked",
       artistName: latestArtistName,
       artistUrl: latestArtistUrl
-    })
+    }),
+    headers: JSON.stringify({
+        'Content-Type': 'application/JSON',
+        "Access-Control-Allow-Origin": '*'
+    });
   }
 }
