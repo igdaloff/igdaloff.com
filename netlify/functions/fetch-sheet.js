@@ -2,7 +2,7 @@ require('dotenv').config();
 const { GoogleSpreadsheet } = require('google-spreadsheet'); // More info https://theoephraim.github.io/node-google-spreadsheet/#/classes/google-spreadsheet
 
 const client_email = process.env.CLIENT_EMAIL;
-const private_key = process.env.PRIVATE_KEY;
+const private_key = process.env.PRIVATE_KEY.replace(/\\n/gm, "\n");
 let latestArtistName = "Bonobo";
 let latestArtistURL = "https://open.spotify.com/artist/0cmWgDlu9CwTgxPhf403hb?si=j08QcnXbRYWOfAZIzlUD7w";
 
@@ -10,7 +10,7 @@ exports.handler = async (event, context) => {
 
   const doc = new GoogleSpreadsheet('1xBjImwNyfIwpyTS9_scCFO3dWXdn5xeyPYOIDTN8UKs');
 
-  async function accessSpreadsheet(result){
+  async function accessSpreadsheet(){
     await doc.useServiceAccountAuth({    
       client_email: client_email,
       private_key: private_key
