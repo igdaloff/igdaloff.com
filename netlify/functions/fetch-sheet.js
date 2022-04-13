@@ -3,20 +3,15 @@ const { GoogleSpreadsheet } = require('google-spreadsheet'); // More info https:
 
 const client_email = process.env.CLIENT_EMAIL;
 const private_key = process.env.PRIVATE_KEY;
+let latestArtistName = "Bonobo";
+let latestArtistURL = "https://open.spotify.com/artist/0cmWgDlu9CwTgxPhf403hb?si=j08QcnXbRYWOfAZIzlUD7w";
 
 exports.handler = async (event, context) => {
 
-  console.log('the handler ran!');
-  return ! (typeof window != 'undefined' && window.document);
-  // const creds = require('../client_secret.json');
   const doc = new GoogleSpreadsheet('1xBjImwNyfIwpyTS9_scCFO3dWXdn5xeyPYOIDTN8UKs');
 
-  async function accessSpreadsheet(){
-    await doc.useServiceAccountAuth({
-      
-      // client_email: creds.client_email,
-      // private_key: creds.private_key,
-
+  async function accessSpreadsheet(result){
+    await doc.useServiceAccountAuth({    
       client_email: client_email,
       private_key: private_key
     });
@@ -26,26 +21,19 @@ exports.handler = async (event, context) => {
     
     const rows = await sheet.getRows();
     const rowsArray = Object.entries(rows); 
-
-    let latestArtistName;
-    let latestArtistUrl;
-
-    //Add spreadsheet data to HTML
+        
     latestArtistName = rowsArray[rowsArray.length - 1][1].Artist;
-    latestArtistUrl = rowsArray[rowsArray.length - 1][1].SpotifyUrl;   
+    latestArtistUrl = rowsArray[rowsArray.length - 1][1].SpotifyUrl;    
+  };
 
-    // if(sheet){
-    //   latestArtistName = rowsArray[rowsArray.length - 1][1].Artist;
-    //   latestArtistUrl = rowsArray[rowsArray.length - 1][1].SpotifyUrl;    
-    // } else {
-    //   latestArtistName = "Pulp";
-    //   latestArtistUrl = "https://open.spotify.com/artist/36E7oYfz3LLRto6l2WmDcD?si=ZIl-fSHBQ_yChwsvEoHvkA";
-    // }
+  await accessSpreadsheet();
 
-    document.querySelector('.listening-to').innerHTML = latestArtistName;
-    document.querySelector('.listening-to').href = latestArtistUrl;    
+  return {
+    statusCode: 200,
+    body: JSON.stringify({ 
+      message: "It worked",
+      artistName: latestArtistName,
+      artistUrl: latestArtistUrl
+    })
   }
-
-  accessSpreadsheet();
 }
-
