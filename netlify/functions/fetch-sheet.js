@@ -37,7 +37,7 @@ exports.handler = async (event, context) => {
     }),
     headers: JSON.stringify({
         'Content-Type': 'application/JSON',
-        "Access-Control-Allow-Origin": '*'
-    });
+        'Access-Control-Allow-Origin': 'true'
+    })
   }
 }
