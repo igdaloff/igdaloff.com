@@ -1,11 +1,12 @@
 require('dotenv').config();
-  const { GoogleSpreadsheet } = require('google-spreadsheet'); // More info https://theoephraim.github.io/node-google-spreadsheet/#/classes/google-spreadsheet
+const { GoogleSpreadsheet } = require('google-spreadsheet'); // More info https://theoephraim.github.io/node-google-spreadsheet/#/classes/google-spreadsheet
 
 const client_email = process.env.CLIENT_EMAIL;
 const private_key = process.env.PRIVATE_KEY;
 
 exports.handler = async (event, context) => {
 
+  console.log('the handler ran!');
   // const creds = require('../client_secret.json');
   const doc = new GoogleSpreadsheet('1xBjImwNyfIwpyTS9_scCFO3dWXdn5xeyPYOIDTN8UKs');
 
@@ -45,6 +46,5 @@ exports.handler = async (event, context) => {
   }
 
   accessSpreadsheet();
-
 }
 
