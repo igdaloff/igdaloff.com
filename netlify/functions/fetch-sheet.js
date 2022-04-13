@@ -1,5 +1,5 @@
 require('dotenv').config();
-import { Buffer } from 'buffer';
+
 const { GoogleSpreadsheet } = require('google-spreadsheet'); // More info https://theoephraim.github.io/node-google-spreadsheet/#/classes/google-spreadsheet
 
 const client_email = process.env.CLIENT_EMAIL;
