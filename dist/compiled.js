@@ -1895,8 +1895,9 @@ module.exports = {
 };
 
 },{"./helpers/bind":19}],31:[function(require,module,exports){
-const axios = require('axios')
+const axios = require('axios');
 
+//Get recent Spotify liked artists from spreadsheet
 axios.get('/.netlify/functions/fetch-sheet')
   .then(function (response) {
     // handle success    
@@ -1907,6 +1908,18 @@ axios.get('/.netlify/functions/fetch-sheet')
     // handle error
     console.log(error);
   });
+
+//Set 'off' rotation based on cursor Y position
+const pos = { y : 0 };
+
+const saveCursorPosition = function(y) {
+  pos.y = (y / window.innerHeight).toFixed(2) * 90 + "deg";
+  document.documentElement.style.setProperty('--y', pos.y);
+}
+
+document.addEventListener('mousemove', 
+  e => { saveCursorPosition(e.clientY); }
+)
 },{"axios":1}],32:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};

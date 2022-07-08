@@ -480,6 +480,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: 0.25rem;
 }
 
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.mt-12 {
+  margin-top: 3rem;
+}
+
 .inline-block {
   display: inline-block;
 }
@@ -544,26 +552,43 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(0 177 0 / var(--tw-text-opacity));
 }
 
-h1 span{
-  transform: rotate(0deg);
-  transform-origin: left;
-  transition: 0.2s;
+.text-blue {
+  --tw-text-opacity: 1;
+  color: rgb(35 87 205 / var(--tw-text-opacity));
 }
 
-h1:hover span{
-  transform: rotate(30deg);
-  transition: 0.2s ease-out;
-  padding-left: 2px;
+.underline {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
+h1 span{
+  transform: rotate(var(--y));
+  transform-origin: left;
+  transition: 0.15s ease;
+}
+
+h3{
+  font-weight: bold;
+}
+
+h4{
+  margin-top: 1em;
 }
 
 p strong{
   font-weight: 700;
 }
 
-p a {
-  --tw-text-opacity: 1;
-  color: rgb(35 87 205 / var(--tw-text-opacity));
+a{
   text-decoration: underline;
+}
+
+.tailwind:before{
+  content: url("../src/images/tailwind-logo.png");
+  position: relative;
+  display: inline-block;
+  margin-right: 3px;
 }
 
 .hover\:underline:hover {

@@ -3,22 +3,30 @@
 @tailwind utilities;
 
 h1 span{
-	transform: rotate(0deg);
+	transform: rotate(var(--y));
 	transform-origin: left;
-	transition: 0.2s;
+	transition: 0.15s ease;
 }
 
-h1:hover span{
-	transform: rotate(30deg);
-	transition: 0.2s ease-out;
-	padding-left: 2px;
+h3{
+	font-weight: bold;
+}
+
+h4{
+	margin-top: 1em;
 }
 
 p strong{
 	font-weight: 700;
 }
 
-p a{
-	@apply text-blue;
+a{
 	text-decoration: underline;	
+}
+
+.tailwind:before{
+	content: url("../src/images/tailwind-logo.png");
+	position: relative;
+	display: inline-block;
+	margin-right: 3px;
 }
