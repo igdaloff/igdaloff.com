@@ -8,7 +8,9 @@ module.exports = {
       colors: {
         'black': '#222222',
         'dark-grey': '#303030',
-        'blue': '#2357cd'
+        'blue': '#2357cd',
+        'tan': '#f8f5ee',
+        'dark-green': '#0f3602'
       },
       letterSpacing: {
         'wide': '0.015em'

@@ -1920,6 +1920,14 @@ const saveCursorPosition = function(y) {
 document.addEventListener('mousemove', 
   e => { saveCursorPosition(e.clientY); }
 )
+
+//Set 'off' rotation to 0 if mouse leaves window so as to not be annoying
+document.addEventListener('mouseleave',
+  e => {  
+  if (e.clientY <= 0 || e.clientX <= 0 || (e.clientX >= window.innerWidth || e.clientY >= window.innerHeight)) {  
+    saveCursorPosition(0); 
+  }  
+});
 },{"axios":1}],32:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
