@@ -476,28 +476,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 1rem;
 }
 
-.mr-1 {
-  margin-right: 0.25rem;
-}
-
 .mt-12 {
   margin-top: 3rem;
-}
-
-.mb-8 {
-  margin-bottom: 2rem;
-}
-
-.mb-80 {
-  margin-bottom: 20rem;
-}
-
-.mb-20 {
-  margin-bottom: 5rem;
-}
-
-.mb-40 {
-  margin-bottom: 10rem;
 }
 
 .inline-block {
@@ -518,6 +498,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-right: 2rem;
 }
 
+.pb-40 {
+  padding-bottom: 10rem;
+}
+
 .pt-20 {
   padding-top: 5rem;
 }
@@ -528,10 +512,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .pb-4 {
   padding-bottom: 1rem;
-}
-
-.pb-40 {
-  padding-bottom: 10rem;
 }
 
 .font-title {
@@ -571,11 +551,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(34 34 34 / var(--tw-text-opacity));
-}
-
-.text-\[\#00b100\] {
-  --tw-text-opacity: 1;
-  color: rgb(0 177 0 / var(--tw-text-opacity));
 }
 
 .text-blue {
@@ -627,19 +602,9 @@ a{
   display: inline-block;
 }
 
-.before\:h-2::before {
-  content: var(--tw-content);
-  height: 0.5rem;
-}
-
 .before\:h-3::before {
   content: var(--tw-content);
   height: 0.75rem;
-}
-
-.before\:w-2::before {
-  content: var(--tw-content);
-  width: 0.5rem;
 }
 
 .before\:w-3::before {
@@ -652,12 +617,6 @@ a{
   border-radius: 9999px;
 }
 
-.before\:bg-dark-green::before {
-  content: var(--tw-content);
-  --tw-bg-opacity: 1;
-  background-color: rgb(15 54 2 / var(--tw-bg-opacity));
-}
-
 .before\:bg-\[\#00b100\]::before {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
@@ -667,9 +626,4 @@ a{
 .before\:content-\[\'\'\]::before {
   --tw-content: '';
   content: var(--tw-content);
-}
-
-.hover\:underline:hover {
-  -webkit-text-decoration-line: underline;
-          text-decoration-line: underline;
 }
