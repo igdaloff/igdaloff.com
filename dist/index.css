@@ -585,6 +585,10 @@ a{
   text-decoration: underline;
 }
 
+.tailwind{
+  display: inline-block;
+}
+
 .tailwind:before{
   content: url("../src/images/tailwind-logo.png");
   position: relative;
