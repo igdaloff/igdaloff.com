@@ -18,7 +18,8 @@ module.exports = {
     },
     fontFamily: {
       sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', 'sans-serif'],      
-      title: ['Inconsolata','Helvetica','sans-serif']  
+      title: ['Inconsolata','Helvetica','sans-serif'],
+      mono: ['Inconsolata', 'ui-monospace']
     }
   }
 }
