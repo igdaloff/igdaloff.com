@@ -31,3 +31,19 @@ document.addEventListener('mouseleave',
     saveCursorPosition(0); 
   }  
 });
+
+//Detect if tab is active to change favicon accordingly
+window.onload = function () {
+  
+  document.addEventListener('visibilitychange', function () {
+  
+    const isPageActive = !document.hidden
+    const favicon = document.querySelector('[rel=icon]')
+
+    if (!isPageActive) {
+      favicon.href = './src/images/favicon/off/favicon-32x32.png'
+    } else {      
+      favicon.href = './src/images/favicon/favicon-32x32.png'
+    }
+  })
+}
