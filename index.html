@@ -1,97 +1,322 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="apple-touch-icon" sizes="180x180" href="src/images/favicon/apple-touch-icon.png" class="favicon">
-		<link rel="icon" type="image/png" sizes="32x32" href="src/images/favicon/favicon-32x32.png" class="favicon">
-		<link rel="icon" type="image/png" sizes="16x16" href="src/images/favicon/favicon-16x16.png">
-		<link rel="manifest" href="src/images/favicon/site.webmanifest">
-		<link rel="mask-icon" href="src/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
-		<meta name="msapplication-TileColor" content="#da532c">
-		<meta name="theme-color" content="#ffffff">
-		<title>Nathan Igdaloff</title>
-		<link rel="stylesheet" href="dist/index.css" >
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;600&family=Jacques+Francois&display=swap" rel="stylesheet">
-		<script src="https://kit.fontawesome.com/4cc442f4fd.js" crossorigin="anonymous"></script>
-		<script src="dist/compiled.js"></script>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="src/images/favicon/apple-touch-icon.png"
+      class="favicon" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="src/images/favicon/favicon-32x32.png"
+      class="favicon" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="src/images/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="src/images/favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="src/images/favicon/safari-pinned-tab.svg"
+      color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Nathan Igdaloff</title>
+    <link rel="stylesheet" href="dist/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;600&family=Jacques+Francois&display=swap"
+      rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/4cc442f4fd.js"
+      crossorigin="anonymous"></script>
+    <script src="dist/compiled.js"></script>
 
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-29359807-1"></script>
-		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-29359807-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
 
-		  gtag('config', 'UA-29359807-1');
-		</script>
-		
-	</head>
-	<body class="max-w-[60ch] m-auto py-20 px-8 font-normal text-dark-green bg-tan pb-40">
+      gtag('config', 'UA-29359807-1')
+    </script>
+  </head>
+  <body
+    class="max-w-[60ch] m-auto py-20 px-8 font-normal text-dark-green bg-tan pb-40 dark:bg-black dark:text-white">
+    <header>
+      <h1 class="font-bold text-3xl font-title">
+        Nathan Igdal<span class="inline-block">off</span>
+      </h1>
+    </header>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="100%"
+      height="100%"
+      viewBox="0 0 337 70"
+      class="animated-line">
+      <defs>
+        <filter id="svgTurbulence1">
+          <feTurbulence
+            id="turbulence"
+            baseFrequency="0.03"
+            numOctaves="8"
+            result="noise"
+            seed="0"></feTurbulence>
+          <feDisplacementMap
+            id="displacement"
+            in="SourceGraphic"
+            in2="noise"
+            scale="-2"></feDisplacementMap>
+        </filter>
+        <filter id="svgTurbulence2">
+          <feTurbulence
+            id="turbulence"
+            baseFrequency="0.03"
+            numOctaves="3"
+            result="noise"
+            seed="1"></feTurbulence>
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="noise"
+            scale="1"></feDisplacementMap>
+        </filter>
+        <filter id="svgTurbulence3">
+          <feTurbulence
+            id="turbulence"
+            baseFrequency="0.03"
+            numOctaves="8"
+            result="noise"
+            seed="2"></feTurbulence>
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="noise"
+            scale="-2"></feDisplacementMap>
+        </filter>
+        <filter id="svgTurbulence4">
+          <feTurbulence
+            id="turbulence"
+            baseFrequency="0.03"
+            numOctaves="3"
+            result="noise"
+            seed="3"></feTurbulence>
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="noise"
+            scale="2"></feDisplacementMap>
+        </filter>
+        <filter id="svgTurbulence5">
+          <feTurbulence
+            id="turbulence"
+            baseFrequency="0.01"
+            numOctaves="8"
+            result="noise"
+            seed="8"></feTurbulence>
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="noise"
+            scale="-1"></feDisplacementMap>
+        </filter>
+      </defs>
+      <g class="custom-logo__svg__line__container">
+        <!-- <line id="logoLine" class="custom-logo__svg__line"  fill="none" stroke="currentColor" strokelinecap="round" strokelinejoin="round" strokewidth="1" y1="0.5" x2="177" y2="0.5" stroke="white"/> -->
+        <!-- <path id="logoLine" class="custom-logo__svg__line" fill="none" stroke="currentColor" strokelinecap="round" strokelinejoin="round" strokewidth="1" d="M154.533 1.382c-.176.183-3.5 3.25-4.856 4.643-1.223 1.255-3.396 3.001-4.499 4.057-1.733 1.661-3.549 3.294-5.283 4.956-1.689 1.618-3.471 3.085-5.161 4.704-1.734 1.661-3.548 3.294-5.282 4.955-1.689 1.618-3.473 3.085-5.162 4.703-1.734 1.661-3.546 3.295-5.28 4.956-1.69 1.618-3.471 3.085-5.161 4.703-1.734 1.661-3.548 3.295-5.282 4.956-1.689 1.618-3.472 3.084-5.161 4.702-1.734 1.661-3.547 3.295-5.282 4.956-1.69 1.618-3.473 3.086-5.163 4.705-1.734 1.659-3.546 3.295-5.28 4.954-1.69 1.618-3.471 3.085-5.161 4.703-1.734 1.661-3.547 3.295-5.282 4.956-1.69 1.618-3.473 3.085-5.163 4.703-1.173 1.122-2.871 2.57-4.534 4.204-.25.247-4.761 4.231-5.007 4.485"></path> -->
+        <path
+          id="logoLine"
+          class="custom-logo__svg__line"
+          fill="none"
+          stroke="currentColor"
+          strokelinecap="round"
+          strokelinejoin="round"
+          strokewidth="1"
+          d="M -1 -1 H 0 H 1 H 2 H 3 H 4 H 5 H 6 H 7 H 8 H 9 H 10 H 11 H 12 H 13 H 14"></path>
+        <animate
+          href="#logoLine"
+          id="logoLineOut"
+          attributeName="d"
+          attributeType="XML"
+          from="M154.533 1.382c-.176.183-3.5 3.25-4.856 4.643-1.223 1.255-3.396 3.001-4.499 4.057-1.733 1.661-3.549 3.294-5.283 4.956-1.689 1.618-3.471 3.085-5.161 4.704-1.734 1.661-3.548 3.294-5.282 4.955-1.689 1.618-3.473 3.085-5.162 4.703-1.734 1.661-3.546 3.295-5.28 4.956-1.69 1.618-3.471 3.085-5.161 4.703-1.734 1.661-3.548 3.295-5.282 4.956-1.689 1.618-3.472 3.084-5.161 4.702-1.734 1.661-3.547 3.295-5.282 4.956-1.69 1.618-3.473 3.086-5.163 4.705-1.734 1.659-3.546 3.295-5.28 4.954-1.69 1.618-3.471 3.085-5.161 4.703-1.734 1.661-3.547 3.295-5.282 4.956-1.69 1.618-3.473 3.085-5.163 4.703-1.173 1.122-2.871 2.57-4.534 4.204-.25.247-4.761 4.231-5.007 4.485"
+          to="M161.25-2.125c-3.875 0-7.375 1.125-8.534 2.514-1.591 1.486-.867 5.839-2.014 6.937-1.734 1.661-6.489.168-8.224 1.83-1.69 1.618-.531 6.211-2.223 7.83-1.734 1.661-6.488.168-8.223 1.829-1.69 1.618-.531 6.211-2.223 7.829-1.733 1.661-6.485.169-8.221 1.83-1.69 1.618-.531 6.211-2.221 7.829-1.734 1.661-6.488.169-8.223 1.83-1.689 1.618-.531 6.21-2.221 7.828-1.734 1.661-6.488.169-8.223 1.83-1.69 1.618-.532 6.212-2.223 7.83-1.734 1.66-6.486.169-8.221 1.829-1.69 1.618-.531 6.211-2.221 7.829-1.734 1.661-6.488.169-8.223 1.83-1.69 1.618-.532 6.211-2.223 7.829-1.152 1.104-5.591.437-7.219 1.659-2.706 2.031-2.347 7.967-2.622 8.028"
+          dur="0.15s"
+          begin="0;logoLineEnd.end"
+          fill="remove"></animate>
+        <animate
+          href="#logoLine"
+          id="logoLineInHalf"
+          attributeName="d"
+          attributeType="XML"
+          from="M161.25-2.125c-3.875 0-7.375 1.125-8.534 2.514-1.591 1.486-.867 5.839-2.014 6.937-1.734 1.661-6.489.168-8.224 1.83-1.69 1.618-.531 6.211-2.223 7.83-1.734 1.661-6.488.168-8.223 1.829-1.69 1.618-.531 6.211-2.223 7.829-1.733 1.661-6.485.169-8.221 1.83-1.69 1.618-.531 6.211-2.221 7.829-1.734 1.661-6.488.169-8.223 1.83-1.689 1.618-.531 6.21-2.221 7.828-1.734 1.661-6.488.169-8.223 1.83-1.69 1.618-.532 6.212-2.223 7.83-1.734 1.66-6.486.169-8.221 1.829-1.69 1.618-.531 6.211-2.221 7.829-1.734 1.661-6.488.169-8.223 1.83-1.69 1.618-.532 6.211-2.223 7.829-1.152 1.104-5.591.437-7.219 1.659-2.706 2.031-2.347 7.967-2.622 8.028"
+          to="M166.375-5.875c-.096.13-4.5 0-7.592 2.762-1.825 1.631-2.171 4.494-3.305 5.579-1.734 1.661-5.104 1.528-6.838 3.189-1.688 1.618-1.918 4.852-3.607 6.47-1.734 1.661-5.102 1.528-6.836 3.189-1.69 1.618-1.918 4.851-3.608 6.469-1.733 1.661-5.099 1.529-6.833 3.19-1.69 1.618-1.918 4.851-3.608 6.469-1.734 1.661-5.101 1.529-6.835 3.19-1.689 1.618-1.918 4.85-3.608 6.469-1.734 1.66-5.101 1.528-6.835 3.189-1.69 1.618-1.919 4.853-3.61 6.472-1.734 1.659-5.099 1.527-6.833 3.188-1.69 1.618-1.918 4.851-3.608 6.47-1.734 1.66-5.101 1.528-6.835 3.189-1.69 1.618-1.919 4.852-3.61 6.469-1.221 1.168-2.81 1.192-6.251 3.042-2.373 1.275-4.443 5.966-4.623 6.006"
+          dur="0.05s"
+          begin="logoLineOut.end"
+          fill="remove"></animate>
+        <animate
+          href="#logoLine"
+          id="logoLineOutFull"
+          attributeName="d"
+          attributeType="XML"
+          from="M166.375-5.875c-.096.13-4.5 0-7.592 2.762-1.825 1.631-2.171 4.494-3.305 5.579-1.734 1.661-5.104 1.528-6.838 3.189-1.688 1.618-1.918 4.852-3.607 6.47-1.734 1.661-5.102 1.528-6.836 3.189-1.69 1.618-1.918 4.851-3.608 6.469-1.733 1.661-5.099 1.529-6.833 3.19-1.69 1.618-1.918 4.851-3.608 6.469-1.734 1.661-5.101 1.529-6.835 3.19-1.689 1.618-1.918 4.85-3.608 6.469-1.734 1.66-5.101 1.528-6.835 3.189-1.69 1.618-1.919 4.853-3.61 6.472-1.734 1.659-5.099 1.527-6.833 3.188-1.69 1.618-1.918 4.851-3.608 6.47-1.734 1.66-5.101 1.528-6.835 3.189-1.69 1.618-1.919 4.852-3.61 6.469-1.221 1.168-2.81 1.192-6.251 3.042-2.373 1.275-4.443 5.966-4.623 6.006"
+          to="M168.72-6.562c-.073.257-8.625-2-9.845-.938-2.034 1.772 1.256 8.238.114 9.332-1.733 1.661-8.729-2.396-10.465-.735-1.689 1.618 1.711 8.776.021 10.394-1.734 1.661-8.729-2.396-10.464-.735-1.69 1.618 1.709 8.775.02 10.394-1.733 1.661-8.728-2.395-10.462-.734-1.69 1.618 1.71 8.775.021 10.394-1.734 1.661-8.729-2.396-10.464-.734-1.689 1.618 1.71 8.774.021 10.393-1.734 1.661-8.729-2.396-10.464-.734-1.69 1.618 1.709 8.776.019 10.396-1.734 1.659-8.728-2.396-10.462-.735-1.69 1.618 1.71 8.775.021 10.394-1.734 1.661-8.729-2.396-10.464-.733-1.69 1.618 1.709 8.774.019 10.394-1.181 1.13-6.258-2.405-9.524-.771-1.017 1.385-.017 5.26.733 8.635"
+          dur="0.2s"
+          begin="logoLineInHalf.end"
+          fill="remove"></animate>
+        <animate
+          href="#logoLine"
+          id="logoLineIn"
+          attributeName="d"
+          attributeType="XML"
+          from="M168.72-6.562c-.073.257-8.625-2-9.845-.938-2.034 1.772 1.256 8.238.114 9.332-1.733 1.661-8.729-2.396-10.465-.735-1.689 1.618 1.711 8.776.021 10.394-1.734 1.661-8.729-2.396-10.464-.735-1.69 1.618 1.709 8.775.02 10.394-1.733 1.661-8.728-2.395-10.462-.734-1.69 1.618 1.71 8.775.021 10.394-1.734 1.661-8.729-2.396-10.464-.734-1.689 1.618 1.71 8.774.021 10.393-1.734 1.661-8.729-2.396-10.464-.734-1.69 1.618 1.709 8.776.019 10.396-1.734 1.659-8.728-2.396-10.462-.735-1.69 1.618 1.71 8.775.021 10.394-1.734 1.661-8.729-2.396-10.464-.733-1.69 1.618 1.709 8.774.019 10.394-1.181 1.13-6.258-2.405-9.524-.771-1.017 1.385-.017 5.26.733 8.635"
+          to="M170.783-13.618c-.176.183-3.5 3.25-4.856 4.643-1.223 1.255-3.396 3.001-4.499 4.057-1.733 1.661-3.549 3.294-5.283 4.956-1.689 1.618-3.471 3.085-5.161 4.704-1.734 1.661-3.548 3.294-5.282 4.955-1.689 1.618-3.473 3.085-5.162 4.703-1.734 1.661-3.546 3.295-5.279 4.956-1.69 1.618-3.472 3.085-5.162 4.703-1.733 1.661-3.547 3.295-5.281 4.956-1.689 1.618-3.472 3.084-5.161 4.702-1.734 1.661-3.547 3.295-5.282 4.956-1.69 1.618-3.473 3.086-5.163 4.705-1.734 1.659-3.546 3.295-5.28 4.954-1.69 1.618-3.471 3.085-5.161 4.703-1.734 1.661-3.547 3.295-5.282 4.956-1.69 1.618-3.473 3.085-5.163 4.703-1.173 1.122-2.871 2.57-4.534 4.204-.25.247-4.761 4.231-5.007 4.485"
+          dur="0.15s"
+          begin="logoLineOutFull.end"
+          fill="remove"></animate>
+        <animate
+          href="#logoLine"
+          id="logoLineEnd"
+          attributeName="d"
+          attributeType="XML"
+          from="M154.533 1.382c-.176.183-3.5 3.25-4.856 4.643-1.223 1.255-3.396 3.001-4.499 4.057-1.733 1.661-3.549 3.294-5.283 4.956-1.689 1.618-3.471 3.085-5.161 4.704-1.734 1.661-3.548 3.294-5.282 4.955-1.689 1.618-3.473 3.085-5.162 4.703-1.734 1.661-3.546 3.295-5.28 4.956-1.69 1.618-3.471 3.085-5.161 4.703-1.734 1.661-3.548 3.295-5.282 4.956-1.689 1.618-3.472 3.084-5.161 4.702-1.734 1.661-3.547 3.295-5.282 4.956-1.69 1.618-3.473 3.086-5.163 4.705-1.734 1.659-3.546 3.295-5.28 4.954-1.69 1.618-3.471 3.085-5.161 4.703-1.734 1.661-3.547 3.295-5.282 4.956-1.69 1.618-3.473 3.085-5.163 4.703-1.173 1.122-2.871 2.57-4.534 4.204-.25.247-4.761 4.231-5.007 4.485"
+          to="M154.533 1.382c-.176.183-3.5 3.25-4.856 4.643-1.223 1.255-3.396 3.001-4.499 4.057-1.733 1.661-3.549 3.294-5.283 4.956-1.689 1.618-3.471 3.085-5.161 4.704-1.734 1.661-3.548 3.294-5.282 4.955-1.689 1.618-3.473 3.085-5.162 4.703-1.734 1.661-3.546 3.295-5.28 4.956-1.69 1.618-3.471 3.085-5.161 4.703-1.734 1.661-3.548 3.295-5.282 4.956-1.689 1.618-3.472 3.084-5.161 4.702-1.734 1.661-3.547 3.295-5.282 4.956-1.69 1.618-3.473 3.086-5.163 4.705-1.734 1.659-3.546 3.295-5.28 4.954-1.69 1.618-3.471 3.085-5.161 4.703-1.734 1.661-3.547 3.295-5.282 4.956-1.69 1.618-3.473 3.085-5.163 4.703-1.173 1.122-2.871 2.57-4.534 4.204-.25.247-4.761 4.231-5.007 4.485"
+          dur="1.45s"
+          begin="logoLineIn.end"
+          fill="freeze"></animate>
+      </g>
+    </svg>
+    <main class="mt-8">
+      <div>
+        <p class="inline">
+          <strong>Front-End Developer & Product Manager.</strong> Enjoys
+          building digital products. Cares about simplicity and usability. Lived
+          in New York for some years, now based in Los Angeles. Interested in
+          the intersection of technology and music. Recently been listening to
+          <a
+            href="https://open.spotify.com/artist/67zR9a98QqWJwpO7wBrGog?si=ADqIppYHQqeD5PrmPjUfAg"
+            class="listening-to text-black dark:text-white"
+            >Sonny & The Sunsets</a
+          >.
+        </p>
+        <input
+          type="checkbox"
+          class="opacity-0 w-0 ml-[-0.25em] peer"
+          id="checkbox" />
+        <label
+          tabindex="-1"
+          for="checkbox"
+          class="inline-block outline outline-blue outline-0 peer-focus:outline-1 peer-checked:outline-0 w-[1.4em] h-[1.4em] border text-center leading-[1.3] rounded-full text-[0.8em] font-semibold font-mono border-current"
+          >i</label
+        >
+        <div
+          class="max-h-0 peer-checked:max-h-60 md:peer-hover:max-h-60 hover:max-h-60 overflow-hidden transition-all duration-700">
+          <p
+            class="inline-block border-dashed border border-black dark:border-white mt-3 rounded-lg p-3 text-center text-sm font-mono font-semibold md:font-light">
+            This artist name is from my most recently saved Spotify track. I'm
+            dynamically displaying it here using the Spotify API, a Netlify
+            function and a Google spreadsheet.
+            <a
+              href="https://github.com/igdaloff/igdaloff.com/blob/main/netlify/functions/fetch-sheet.js"
+              >See the code</a
+            >.
+          </p>
+        </div>
+      </div>
+      <p
+        class="status mt-4 italic before:content-[''] before:w-3 before:h-3 before:bg-[#00b100] before:inline-block before:mr-1 before:rounded-full">
+        Currently available for freelance projects.
+        <a href="mailto:louis.nathan@gmail.com">Get in touch</a>!
+      </p>
+      <p class="mt-4">
+        Links:
+        <a class="text-blue dark:text-white" href="https://read.cv/iggy">CV</a>,
+        <a
+          class="text-blue dark:text-white"
+          href="mailto:louis.nathan@gmail.com"
+          >Email</a
+        >,
+        <a
+          class="text-blue dark:text-white"
+          href="https://www.linkedin.com/in/nathanigdaloff/"
+          >LinkedIn</a
+        >,
+        <a class="text-blue dark:text-white" href="https://twitter.com/igdaloff"
+          >Twitter</a
+        >,
+        <a
+          class="text-blue dark:text-white"
+          href="https://open.spotify.com/artist/6smME5hjTLSJKp8se1ZmhT?si=NeBCa177QzCxH7S9CGOhgg"
+          >Music</a
+        >
+      </p>
 
-		<header>
-			<h1 class="font-bold text-3xl font-title">Nathan Igdal<span class="inline-block">off</span></h1>
-		</header>
-
-		<main class="mt-8">
-			<div>				
-				<p class="inline"><strong>Front-End Developer & Product Manager.</strong> Enjoys building digital products. Cares about simplicity and usability. Lived in New York for some years, now based in Los Angeles. Interested in the intersection of technology and music. Recently been enjoying 
-					<a href="https://open.spotify.com/artist/67zR9a98QqWJwpO7wBrGog?si=ADqIppYHQqeD5PrmPjUfAg" class="listening-to text-black">Sonny & The Sunsets</a>.
-				</p> 						
-				<input type="checkbox" class="opacity-0 w-0 ml-[-0.25em] peer" id="checkbox" />
-				<label tabindex="-1" for="checkbox" class="inline-block outline outline-blue outline-0 peer-focus:outline-1 peer-checked:outline-0 w-[1.4em] h-[1.4em] border text-center leading-[1.3] rounded-full text-[0.8em] font-semibold font-mono border-current">i</label>										
-				<div class="max-h-0 peer-checked:max-h-60 md:peer-hover:max-h-60 hover:max-h-60 overflow-hidden transition-all duration-700">
-					<p 
-							class="inline-block border-dashed border border-black mt-3 rounded-lg p-3 text-center text-sm font-mono font-semibold md:font-light">
-							This artist name is from my most recently saved Spotify track. I'm dynamically displaying it here using the Spotify API, a Netlify function and a Google spreadsheet. <a href="https://github.com/igdaloff/igdaloff.com/blob/main/netlify/functions/fetch-sheet.js">See the code</a>.
-					</p>				
-				</div>
-			</div>
-			<p class="status mt-4 italic before:content-[''] before:w-3 before:h-3 before:bg-[#00b100] before:inline-block before:mr-1 before:rounded-full">Currently available for freelance projects. <a href="mailto:louis.nathan@gmail.com">Get in touch</a>!</p>
-			<p class="mt-4">Links:
-				<a class="text-blue" href="https://read.cv/iggy">CV</a>,
-				<a class="text-blue" href="mailto:louis.nathan@gmail.com">Email</a>,
-				<a class="text-blue" href="https://www.linkedin.com/in/nathanigdaloff/">LinkedIn</a>,
-				<a class="text-blue" href="https://twitter.com/igdaloff">Twitter</a>,
-				<a class="text-blue" href="https://open.spotify.com/artist/6smME5hjTLSJKp8se1ZmhT?si=NeBCa177QzCxH7S9CGOhgg">Music</a>
-			</p>				
-			
-			<div class="mt-12">
-				<h3>Personal Projects</h3>		
-				<ul>
-					<li>
-						<h4><a href="//concertstonight.co">Gig List</a> →</h4>
-						<p>Find a concert to see by generating a random, nearby show happenning soon, and a Spotify song from each artist.</p>
-					</li>
-					<li>
-						<h4><a href="//daylist-igdaloff.vercel.app">Day List</a> →</h4>
-						<p>Plan your day ahead and keep a journal at the same time.</p>
-					</li>
-					<li>
-						<h4><a href="//thenextweb.com/news/milkshake-simple-way-share-three-track-music-playlists-chat-friends-real-time">Milkshake</a> →</h4>
-						<p>Create and listen to playlists in real-time with a friend over websockets. Now defunct :(</p>
-					</li>
-				</ul>				
-			</div>
-			<div class="mt-12">
-				<h3>Stuff I Use</h3>		
-				<ul>
-					<li>
-						<h4 class="underline">Front-End</h4>
-						<p><i class="fa-brands fa-html5"></i>&nbsp;HTML, <i class="fa-brands fa-js-square"></i>&nbsp;Javascript, <i class="fa-brands fa-react"></i>&nbsp;ReactJS, <i class="fa-brands fa-vuejs"></i>&nbsp;Vue, <i class="fa-brands fa-sass"></i>&nbsp;Sass, <span class="tailwind brand-logo">Tailwind</span></p>
-					</li>
-					<li>
-						<h4 class="underline">Platforms</h4>
-						<p><i class="fa-brands fa-shopify"></i>&nbsp;Shopify, <span class="webflow brand-logo">Webflow</span>, <i class="fa-brands fa-squarespace"></i>&nbsp;Squarespace</p>
-					</li>
-					<li>
-						<h4 class="underline">Design</h4>
-						<p><i class="fa-brands fa-figma"></i>&nbsp;Figma, <i class="fa-brands fa-sketch"></i>&nbsp;Sketch</p> 
-					</li>
-				</ul>				
-			</div>								
-		</main>
-	</body>
+      <div class="mt-12">
+        <h3>Personal Projects</h3>
+        <ul>
+          <li>
+            <h4><a href="//concertstonight.co">Gig List</a> →</h4>
+            <p>
+              Find a concert to see by generating a random, nearby show
+              happenning soon, and a Spotify song from each artist.
+            </p>
+          </li>
+          <li>
+            <h4><a href="//daylist-igdaloff.vercel.app">Day List</a> →</h4>
+            <p>Plan your day ahead and keep a journal at the same time.</p>
+          </li>
+          <li>
+            <h4>
+              <a
+                href="//thenextweb.com/news/milkshake-simple-way-share-three-track-music-playlists-chat-friends-real-time"
+                >Milkshake</a
+              >
+              →
+            </h4>
+            <p>
+              Create and listen to playlists in real-time with a friend over
+              websockets. Now defunct :(
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div class="mt-12">
+        <h3>Stuff I Use</h3>
+        <ul>
+          <li>
+            <h4 class="underline">Front-End</h4>
+            <p>
+              <i class="fa-brands fa-html5"></i>&nbsp;HTML,
+              <i class="fa-brands fa-js-square"></i>&nbsp;Javascript,
+              <i class="fa-brands fa-react"></i>&nbsp;ReactJS,
+              <i class="fa-brands fa-vuejs"></i>&nbsp;Vue,
+              <i class="fa-brands fa-sass"></i>&nbsp;Sass,
+              <span class="tailwind brand-logo">Tailwind</span>
+            </p>
+          </li>
+          <li>
+            <h4 class="underline">Platforms</h4>
+            <p>
+              <i class="fa-brands fa-shopify"></i>&nbsp;Shopify,
+              <span class="webflow brand-logo">Webflow</span>,
+              <i class="fa-brands fa-squarespace"></i>&nbsp;Squarespace
+            </p>
+          </li>
+          <li>
+            <h4 class="underline">Design</h4>
+            <p>
+              <i class="fa-brands fa-figma"></i>&nbsp;Figma,
+              <i class="fa-brands fa-sketch"></i>&nbsp;Sketch
+            </p>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
 </html>
