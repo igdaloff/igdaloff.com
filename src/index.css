@@ -2,50 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-h1 span{
-	transform: rotate(var(--y));
-	transform-origin: left;
-	transition: 0.15s ease;
+h1 span {
+  transform: rotate(var(--y));
+  transform-origin: left;
+  transition: 0.15s ease;
 }
 
-h3{
-	font-weight: bold;
+h3 {
+  font-weight: bold;
 }
 
-h4{
-	margin-top: 1em;
+h4 {
+  margin-top: 1em;
 }
 
-p strong{
-	font-weight: 700;
+p strong {
+  font-weight: 700;
 }
 
-a{
-	text-decoration: underline;	
+a {
+  text-decoration: underline;
+  position: relative;
+  display: inline-block;
+  padding: 0px 3px;
+  margin-left: -3px;
+  margin-right: -3px;
+  background-image: linear-gradient(#222 0 0);
+  background-size: 100% var(--p, 0);
+  background-position: top;
+  background-repeat: no-repeat;
+  transition: 0.3s, background-position 0s;
+  border-radius: 3px;
 }
 
-.brand-logo{
-	display: inline-block;
+a:hover {
+  color: white;
+  text-decoration: none;
+  --p: 100%;
+  background-position: bottom;
 }
 
-.brand-logo:before{
-	position: relative;
-	display: inline-block;
-	top: 2px;
-	margin-right: 3px;
-	background-size: 15px 15px;
-	width: 15px;
-	height: 15px;
+.brand-logo {
+  display: inline-block;
 }
 
-
-.tailwind:before{
-	content: '';
-	background-image: url("../src/images/tailwind-logo.png");
-
+.brand-logo:before {
+  position: relative;
+  display: inline-block;
+  top: 2px;
+  margin-right: 3px;
+  background-size: 15px 15px;
+  width: 15px;
+  height: 15px;
 }
 
-.webflow:before{
-	content: '';
-	background-image: url("../src/images/webflow-logo.png");
+.tailwind:before {
+  content: '';
+  background-image: url('../src/images/tailwind-logo.png');
+}
+
+.webflow:before {
+  content: '';
+  background-image: url('../src/images/webflow-logo.png');
 }
