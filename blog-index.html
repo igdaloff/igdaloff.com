@@ -1,0 +1,11 @@
+---
+permalink: /blog/
+layout: base
+title: Recent Posts
+---
+
+<h2>{{ page.title }}</h2>
+{% for post in site.posts %}
+<h2>{{ post.title }}</h2>
+<p>{{ post.content }}</p>
+{% endfor %}

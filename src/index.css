@@ -2,50 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-h1 span{
-	transform: rotate(var(--y));
-	transform-origin: left;
-	transition: 0.15s ease;
+h1 span {
+  transform: rotate(var(--y));
+  transform-origin: left;
+  transition: 0.15s ease;
 }
 
-h3{
-	font-weight: bold;
+h3 {
+  font-weight: bold;
 }
 
-h4{
-	margin-top: 1em;
+h4 {
+  margin-top: 1em;
 }
 
-p strong{
-	font-weight: 700;
+p strong {
+  font-weight: 700;
 }
 
-a{
-	text-decoration: underline;	
+.brand-logo {
+  display: inline-block;
 }
 
-.brand-logo{
-	display: inline-block;
+.brand-logo:before {
+  position: relative;
+  display: inline-block;
+  top: 2px;
+  margin-right: 3px;
+  background-size: 15px 15px;
+  width: 15px;
+  height: 15px;
 }
 
-.brand-logo:before{
-	position: relative;
-	display: inline-block;
-	top: 2px;
-	margin-right: 3px;
-	background-size: 15px 15px;
-	width: 15px;
-	height: 15px;
+.tailwind:before {
+  content: '';
+  background-image: url('../src/images/tailwind-logo.png');
 }
 
-
-.tailwind:before{
-	content: '';
-	background-image: url("../src/images/tailwind-logo.png");
-
-}
-
-.webflow:before{
-	content: '';
-	background-image: url("../src/images/webflow-logo.png");
+.webflow:before {
+  content: '';
+  background-image: url('../src/images/webflow-logo.png');
 }
