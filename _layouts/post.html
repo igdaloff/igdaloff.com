@@ -1,3 +1,17 @@
 ---
 layout: base
 ---
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    <h1 class="font-bold text-6xl" itemprop="name headline">{{ page.title | escape }}</h1>
+    <em class="inline-block mb-4">
+      {%- assign date_format = "%b %-d, %Y" -%}
+      <time datetime="{{ page.date }}" itemprop="datePublished">{{ page.date | date: date_format }}</time>
+    </em>
+  </header>
+
+  <p class="" itemprop="articleBody">{{ content }}</p>
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>
