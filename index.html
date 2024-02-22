@@ -15,13 +15,13 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-29359807-1"></script>
     <script>
-      window.dataLayer = window.dataLayer || []
+      window.dataLayer = window.dataLayer || [];
       function gtag() {
-        dataLayer.push(arguments)
+        dataLayer.push(arguments);
       }
-      gtag('js', new Date())
+      gtag('js', new Date());
 
-      gtag('config', 'UA-29359807-1')
+      gtag('config', 'UA-29359807-1');
     </script>
     <link rel="stylesheet" href="dist/index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -37,54 +37,105 @@
 
     <main class="mt-8">
       <div>
-        <p class="inline"><strong>Front-End Developer & Product Manager.</strong> Enjoys building digital products, most recently at <a href="//atlasobscura.com">Atlas Obscura</a> and <a href="//bighuman.com">Big Human</a>. Cares about simplicity and usability. Lived in New York for some years, now based in Los Angeles. Interested in the intersection of technology and music. Lately I've been listening to <a href="https://open.spotify.com/artist/67zR9a98QqWJwpO7wBrGog?si=ADqIppYHQqeD5PrmPjUfAg" class="listening-to text-black">Sonny & The Sunsets</a>.</p>
+        <p class="inline">
+          <strong>Front-End Developer & Product Manager.</strong> Enjoys building digital products, most recently at
+          <a href="//atlasobscura.com">Atlas Obscura</a> and <a href="//bighuman.com">Big Human</a>. Cares about
+          simplicity and usability. Lived in New York for some years, now based in Los Angeles. Interested in the
+          intersection of technology and music. Lately I've been listening to
+          <a
+            href="https://open.spotify.com/artist/67zR9a98QqWJwpO7wBrGog?si=ADqIppYHQqeD5PrmPjUfAg"
+            class="listening-to text-black"
+            >Sonny & The Sunsets</a
+          >.
+        </p>
         <input type="checkbox" class="opacity-0 w-0 ml-[-0.25em] peer" id="checkbox" />
-        <label tabindex="-1" for="checkbox" class="inline-block outline outline-blue outline-0 peer-focus:outline-1 peer-checked:outline-0 w-[1.4em] h-[1.4em] border text-center leading-[1.3] rounded-full text-[0.8em] font-semibold font-mono border-current">i</label>
-        <div class="max-h-0 peer-checked:max-h-60 md:peer-hover:max-h-60 hover:max-h-60 overflow-hidden transition-all duration-700">
-          <p class="inline-block border-dashed border border-black mt-3 rounded-lg p-3 text-center text-sm font-mono font-semibold md:font-light">This artist name is from my most recently saved Spotify track. I'm dynamically displaying it here using the Spotify API, a Netlify function and a Google spreadsheet. <a href="https://github.com/igdaloff/igdaloff.com/blob/main/netlify/functions/fetch-sheet.js">See the code</a>.</p>
+        <label
+          tabindex="-1"
+          for="checkbox"
+          class="inline-block outline outline-blue outline-0 peer-focus:outline-1 peer-checked:outline-0 w-[1.4em] h-[1.4em] border text-center leading-[1.3] rounded-full text-[0.8em] font-semibold font-mono border-current"
+          >i</label
+        >
+        <div
+          class="max-h-0 peer-checked:max-h-60 md:peer-hover:max-h-60 hover:max-h-60 overflow-hidden transition-all duration-700">
+          <p
+            class="inline-block border-dashed border border-black mt-3 rounded-lg p-3 text-center text-sm font-mono font-semibold md:font-light">
+            This artist name is from my most recently saved Spotify track. I'm dynamically displaying it here using the
+            Spotify API, a Netlify function and a Google spreadsheet.
+            <a href="https://github.com/igdaloff/igdaloff.com/blob/main/netlify/functions/fetch-sheet.js"
+              >See the code</a
+            >.
+          </p>
         </div>
       </div>
-      <p class="status mt-4 italic before:content-[''] before:w-3 before:h-3 before:bg-[#00b100] before:inline-block before:mr-1 before:rounded-full">Currently available for freelance projects. <a href="mailto:louis.nathan@gmail.com">Get in touch</a>!</p>
-      <p class="mt-4">
-        Links: <a class="text-blue" href="https://read.cv/iggy">CV</a>, <a class="text-blue" href="mailto:louis.nathan@gmail.com">Email</a>, <a class="text-blue" href="https://www.linkedin.com/in/nathanigdaloff/">LinkedIn</a>, <a class="text-blue" href="https://github.com/igdaloff">Github</a>,
-        <a class="text-blue" href="https://open.spotify.com/artist/6smME5hjTLSJKp8se1ZmhT?si=NeBCa177QzCxH7S9CGOhgg">Music</a>
+      <p
+        class="status mt-4 italic before:content-[''] before:w-3 before:h-3 before:bg-[#00b100] before:inline-block before:mr-1 before:rounded-full">
+        Currently available for freelance projects. <a href="mailto:louis.nathan@gmail.com">Get in touch</a>!
       </p>
-
+      <p class="mt-4">
+        Links: <a href="https://read.cv/iggy">CV</a>, <a href="mailto:louis.nathan@gmail.com">Email</a>,
+        <a href="https://www.linkedin.com/in/nathanigdaloff/">LinkedIn</a>,
+        <a href="https://github.com/igdaloff">Github</a>,
+        <a href="https://open.spotify.com/artist/4yIdfevsCqbLiWzi2KfKe9?si=i5Ge5L_STjKcKVlJjgOVYw">Music</a>
+      </p>
       <div class="mt-12">
-        <h3>Personal Projects</h3>
+        <h3 class="font-bold">What I Build With</h3>
         <ul>
           <li>
-            <h4><a href="https://wiki-walking-guide.netlify.app/">Wikipedia Walking Guide</a> →</h4>
-            <p>Listen to spoken Wikipedia entries of nearby attractions as you explore what's around you. Built with Vue as a Progressive Web App.</p>
+            <h4 class="underline mt-4">Front-End</h4>
+            <p>
+              <i class="fa-brands fa-html5"></i>&nbsp;HTML, <i class="fa-brands fa-css3-alt"></i>&nbsp;CSS,
+              <i class="fa-brands fa-js-square"></i>&nbsp;Javascript, <i class="fa-brands fa-react"></i>&nbsp;ReactJS,
+              <span class="nextjs brand-logo">NextJS</span>, <i class="fa-brands fa-vuejs"></i>&nbsp;Vue,
+              <span class="tailwind brand-logo">Tailwind</span>
+            </p>
           </li>
           <li>
-            <h4><a href="//daylist-igdaloff.vercel.app">Day List</a> →</h4>
-            <p>Plan your day ahead and keep a journal at the same time. Built with React and NextJS.</p>
+            <h4 class="underline mt-4">Platforms</h4>
+            <p>
+              <span class="webflow brand-logo">Webflow</span>, <i class="fa-brands fa-shopify"></i>&nbsp;Shopify,
+              <i class="fa-brands fa-squarespace"></i>&nbsp;Squarespace
+            </p>
           </li>
           <li>
-            <h4><a href="//concertstonight.co">Gig List</a> →</h4>
-            <p>Find a concert to see by generating a random, nearby show happenning soon, and a Spotify song from each artist. Built with Vue.</p>
-          </li>
-          <li>
-            <h4><a href="//thenextweb.com/news/milkshake-simple-way-share-three-track-music-playlists-chat-friends-real-time">Milkshake</a> →</h4>
-            <p>Create and listen to playlists in real-time with a friend over websockets. Now defunct :(</p>
+            <h4 class="underline mt-4">Design</h4>
+            <p><i class="fa-brands fa-figma"></i>&nbsp;Figma, <i class="fa-brands fa-sketch"></i>&nbsp;Sketch</p>
           </li>
         </ul>
       </div>
       <div class="mt-12">
-        <h3>Stuff I Use</h3>
+        <h3 class="font-bold">Recent Work</h3>
+        <p>View recent freelance work in my <a href="https://read.cv/iggy">CV</a>.</p>
+      </div>
+      <div class="mt-12">
+        <h3 class="font-bold">Personal Projects</h3>
         <ul>
           <li>
-            <h4 class="underline">Front-End</h4>
-            <p><i class="fa-brands fa-html5"></i>&nbsp;HTML, <i class="fa-brands fa-css3-alt"></i>&nbsp;CSS, <i class="fa-brands fa-js-square"></i>&nbsp;Javascript, <i class="fa-brands fa-react"></i>&nbsp;ReactJS, <i class="fa-brands fa-vuejs"></i>&nbsp;Vue, <i class="fa-brands fa-sass"></i>&nbsp;Sass, <span class="tailwind brand-logo">Tailwind</span></p>
+            <h4 class="mt-4"><a href="https://wiki-walking-guide.netlify.app/">Wikipedia Walking Guide</a> →</h4>
+            <p>
+              Listen to spoken Wikipedia entries of nearby attractions as you explore what's around you. Built with Vue
+              as a Progressive Web App.
+            </p>
           </li>
           <li>
-            <h4 class="underline">Platforms</h4>
-            <p><i class="fa-brands fa-shopify"></i>&nbsp;Shopify, <span class="webflow brand-logo">Webflow</span>, <i class="fa-brands fa-squarespace"></i>&nbsp;Squarespace</p>
+            <h4 class="mt-4"><a href="//daylist-igdaloff.vercel.app">Day List</a> →</h4>
+            <p>Plan your day ahead and keep a journal at the same time. Built with React and NextJS.</p>
           </li>
           <li>
-            <h4 class="underline">Design</h4>
-            <p><i class="fa-brands fa-figma"></i>&nbsp;Figma, <i class="fa-brands fa-sketch"></i>&nbsp;Sketch</p>
+            <h4 class="mt-4"><a href="//concertstonight.co">Gig List</a> →</h4>
+            <p>
+              Find a concert to see by generating a random, nearby show happenning soon, and a Spotify song from each
+              artist. Built with Vue.
+            </p>
+          </li>
+          <li>
+            <h4 class="mt-4">
+              <a
+                href="//thenextweb.com/news/milkshake-simple-way-share-three-track-music-playlists-chat-friends-real-time"
+                >Milkshake</a
+              >
+              →
+            </h4>
+            <p>Create and listen to playlists in real-time with a friend over websockets. Now defunct :(</p>
           </li>
         </ul>
       </div>
