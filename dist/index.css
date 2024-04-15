@@ -611,11 +611,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(34 34 34 / var(--tw-text-opacity));
 }
 
-.text-blue {
-  --tw-text-opacity: 1;
-  color: rgb(35 87 205 / var(--tw-text-opacity));
-}
-
 .underline {
   text-decoration-line: underline;
 }
