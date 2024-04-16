@@ -8,16 +8,8 @@ h1 span {
   transition: 0.15s ease;
 }
 
-p strong {
-  font-weight: 700;
-}
-
 a {
   text-decoration: underline;
-}
-
-.brand-logo {
-  display: inline-block;
 }
 
 .brand-logo:before {
@@ -28,21 +20,6 @@ a {
   background-size: 15px 15px;
   width: 15px;
   height: 15px;
-}
-
-.tailwind:before {
-  content: '';
-  background-image: url('../src/images/tailwind-logo.png');
-}
-
-.webflow:before {
-  content: '';
-  background-image: url('../src/images/webflow-logo.png');
-}
-
-.nextjs:before {
-  content: '';
-  background-image: url('../src/images/nextjs-logo.svg');
 }
 
 .fade-in {
