@@ -31,20 +31,20 @@
     <script src="dist/compiled.js"></script>
   </head>
   <body class="max-w-[60ch] m-auto py-20 px-8 font-normal text-black pb-40">
-    <header>
-      <h1 class="font-bold text-3xl font-title">Nathan Igdal<span class="inline-block">off</span></h1>
+    <header class="">
+      <h1 class="font-bold text-3xl font-title fade-in">Nathan Igdal<span class="inline-block">off</span></h1>
     </header>
 
-    <main class="mt-8">
-      <div>
+    <main class="mt-8 space-y-12">
+      <div class="fade-in">
         <p class="inline">
-          <strong>Front-End Developer & Product Manager.</strong> Enjoys building digital products, most recently at
-          <a href="//atlasobscura.com">Atlas Obscura</a> and <a href="//bighuman.com">Big Human</a>. Cares about
-          simplicity and usability. Lived in New York for some years, now based in Los Angeles. Interested in the
-          intersection of technology and music. Lately I've been listening to
+          <strong>Front-End Developer & Product Manager.</strong> I enjoy building digital products, previously at
+          <a href="//atlasobscura.com">Atlas Obscura</a> and <a href="//bighuman.com">Big Human</a>, now as a
+          freelancer. I care about simplicity and usability, and the intersection of technology and music. Lately I've
+          been listening to
           <a
             href="https://open.spotify.com/artist/67zR9a98QqWJwpO7wBrGog?si=ADqIppYHQqeD5PrmPjUfAg"
-            class="listening-to text-black"
+            class="listening-to"
             >Sonny & The Sunsets</a
           >.
         </p>
@@ -52,40 +52,36 @@
         <label
           tabindex="-1"
           for="checkbox"
-          class="inline-block outline outline-blue outline-0 peer-focus:outline-1 peer-checked:outline-0 w-[1.4em] h-[1.4em] border text-center leading-[1.3] rounded-full text-[0.8em] font-semibold font-mono border-current"
+          class="inline-block outline outline-blue outline-0 peer-focus:outline-1 peer-checked:outline-0 border text-center leading-[1.3] rounded-full text-[0.7em] font-semibold font-mono border-current border-dashed size-4"
           >i</label
         >
         <div
           class="max-h-0 peer-checked:max-h-60 md:peer-hover:max-h-60 hover:max-h-60 overflow-hidden transition-all duration-700">
-          <p
-            class="inline-block border-dashed border border-black mt-3 rounded-lg p-3 text-center text-sm font-mono font-semibold md:font-light">
-            This artist name is from my most recently saved Spotify track. I'm dynamically displaying it here using the
-            Spotify API, a Netlify function and a Google spreadsheet.
+          <p class="inline-block border-dashed border border-black mt-3 rounded-lg px-3 py-2 italic text-pretty">
+            This is the artist of my most recently saved Spotify track, shown here using the Spotify API, a Netlify
+            function and a Google sheet.
             <a href="https://github.com/igdaloff/igdaloff.com/blob/main/netlify/functions/fetch-sheet.js"
               >See the code</a
             >.
           </p>
         </div>
+        <p class="mt-4">
+          Links: <a href="https://read.cv/iggy">CV</a>, <a href="mailto:louis.nathan@gmail.com">Email</a>,
+          <a href="https://www.linkedin.com/in/nathanigdaloff/">LinkedIn</a>,
+          <a href="https://github.com/igdaloff">Github</a>,
+          <a href="https://open.spotify.com/artist/4yIdfevsCqbLiWzi2KfKe9?si=i5Ge5L_STjKcKVlJjgOVYw">Music</a>
+        </p>
       </div>
-      <p
-        class="status mt-4 italic before:content-[''] before:w-3 before:h-3 before:bg-[#00b100] before:inline-block before:mr-1 before:rounded-full">
-        Currently available for freelance projects. <a href="mailto:louis.nathan@gmail.com">Get in touch</a>!
-      </p>
-      <p class="mt-4">
-        Links: <a href="https://read.cv/iggy">CV</a>, <a href="mailto:louis.nathan@gmail.com">Email</a>,
-        <a href="https://www.linkedin.com/in/nathanigdaloff/">LinkedIn</a>,
-        <a href="https://github.com/igdaloff">Github</a>,
-        <a href="https://open.spotify.com/artist/4yIdfevsCqbLiWzi2KfKe9?si=i5Ge5L_STjKcKVlJjgOVYw">Music</a>
-      </p>
-      <div class="mt-12">
+
+      <div class="fade-in">
         <h3 class="font-bold">What I Build With</h3>
         <ul>
           <li>
             <h4 class="underline mt-4">Front-End</h4>
             <p>
-              <i class="fa-brands fa-html5"></i>&nbsp;HTML, <i class="fa-brands fa-css3-alt"></i>&nbsp;CSS,
-              <i class="fa-brands fa-js-square"></i>&nbsp;Javascript, <i class="fa-brands fa-react"></i>&nbsp;ReactJS,
-              <span class="nextjs brand-logo">NextJS</span>, <i class="fa-brands fa-vuejs"></i>&nbsp;Vue,
+              <i class="fa-brands fa-css3-alt"></i>&nbsp;CSS, <i class="fa-brands fa-js-square"></i>&nbsp;Javascript,
+              <i class="fa-brands fa-react"></i>&nbsp;ReactJS, <span class="nextjs brand-logo">NextJS</span>,
+              <i class="fa-brands fa-vuejs"></i>&nbsp;Vue,
               <span class="tailwind brand-logo">Tailwind</span>
             </p>
           </li>
@@ -102,30 +98,24 @@
           </li>
         </ul>
       </div>
-      <div class="mt-12">
+      <div class="fade-in">
         <h3 class="font-bold">Recent Work</h3>
-        <p>View recent freelance projects in my <a href="https://read.cv/iggy">CV</a>.</p>
+        <p>View recent professional work in my <a href="https://read.cv/iggy">CV</a>.</p>
       </div>
-      <div class="mt-12">
+      <div class="fade-in">
         <h3 class="font-bold">Personal Projects</h3>
         <ul>
           <li>
-            <h4 class="mt-4"><a href="https://wiki-walking-guide.netlify.app/">Wikipedia Walking Guide</a> →</h4>
-            <p>
-              Listen to spoken Wikipedia entries of nearby attractions as you explore what's around you. Built with Vue
-              as a Progressive Web App.
-            </p>
+            <h4 class="mt-4"><a href="https://wiki-walking-guide.netlify.app/">Wiki Walking Guide</a> →</h4>
+            <p>Listen to spoken Wikipedia entries of nearby attractions.</p>
           </li>
           <li>
             <h4 class="mt-4"><a href="//daylist-igdaloff.vercel.app">Day List</a> →</h4>
-            <p>Plan your day ahead and keep a journal at the same time. Built with React and NextJS.</p>
+            <p>Plan your day and keep a journal in one place.</p>
           </li>
           <li>
             <h4 class="mt-4"><a href="//concertstonight.co">Gig List</a> →</h4>
-            <p>
-              Find a concert to see by generating a random, nearby show happenning soon, and a Spotify song from each
-              artist. Built with Vue.
-            </p>
+            <p>Find concerts by generating random, nearby shows happenning soon.</p>
           </li>
           <li>
             <h4 class="mt-4">
@@ -135,7 +125,7 @@
               >
               →
             </h4>
-            <p>Create and listen to playlists in real-time with a friend over websockets. Now defunct :(</p>
+            <p>Create and listen to playlists in real-time with a friend over websockets.</p>
           </li>
         </ul>
       </div>
