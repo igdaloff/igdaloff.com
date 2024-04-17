@@ -4,9 +4,10 @@
   "description": "Code for personal site",
   "main": "src/index.js",
   "scripts": {
+    "start": "webpack serve",
+    "build": "webpack --config webpack.config.js --mode production",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx tailwindcss -i ./src/index.css -o ./dist/index.css --watch",
-    "build": "npx tailwindcss -i ./src/index.css -o ./dist/index.css",
     "netlify": "./node_modules/.bin/netlify"
   },
   "repository": {
@@ -30,6 +31,10 @@
     "autoprefixer": "^10.4.19",
     "netlify-cli": "^9.16.6",
     "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3"
+    "postcss-loader": "^8.1.1",
+    "tailwindcss": "^3.4.3",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
   }
 }
