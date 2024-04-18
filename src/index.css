@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-h1 span {
-  transform: rotate(var(--y));
-  transform-origin: left;
-  transition: 0.15s ease;
-}
-
 a {
   text-decoration: underline;
 }
@@ -20,6 +14,10 @@ a {
   background-size: 15px 15px;
   width: 15px;
   height: 15px;
+}
+
+.un-rotate {
+  transform: rotate(0deg);
 }
 
 .fade-in {
