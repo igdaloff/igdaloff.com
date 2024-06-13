@@ -603,21 +603,6 @@ video {
   transform-origin: left;
 }
 
-.rotate-\[30deg\] {
-  --tw-rotate: 30deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.rotate-\[40deg\] {
-  --tw-rotate: 40deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.rotate-\[20deg\] {
-  --tw-rotate: 20deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
 .rotate-\[25deg\] {
   --tw-rotate: 25deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -768,14 +753,6 @@ video {
   transition-duration: 700ms;
 }
 
-.duration-300 {
-  transition-duration: 300ms;
-}
-
-.duration-500 {
-  transition-duration: 500ms;
-}
-
 a {
   text-decoration: underline;
 }
@@ -788,10 +765,6 @@ a {
   background-size: 15px 15px;
   width: 15px;
   height: 15px;
-}
-
-.un-rotate {
-  transform: rotate(0deg);
 }
 
 .fade-in {
@@ -833,21 +806,6 @@ a {
 
 .hover\:max-h-60:hover {
   max-height: 15rem;
-}
-
-.group:hover .group-hover\:rotate-\[30deg\] {
-  --tw-rotate: 30deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.group:hover .group-hover\:rotate-\[40deg\] {
-  --tw-rotate: 40deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.group:hover .group-hover\:rotate-\[20deg\] {
-  --tw-rotate: 20deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .group:hover .group-hover\:rotate-\[25deg\] {

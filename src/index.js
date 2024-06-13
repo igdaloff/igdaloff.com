@@ -12,11 +12,6 @@ axios
   });
 
 window.onload = function () {
-  const offText = document.querySelector('h1 span');
-  setTimeout(function () {
-    offText.classList.add('un-rotate');
-  }, 1500);
-
   //Detect if tab is active to change favicon accordingly
   document.addEventListener('visibilitychange', function () {
     const isPageActive = !document.hidden;
