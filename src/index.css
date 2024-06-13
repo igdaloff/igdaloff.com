@@ -16,6 +16,16 @@ a {
   height: 15px;
 }
 
+.tailwind:before {
+  content: '';
+  background-image: url('../src/images/tailwind-logo.png');
+}
+
+.nextjs:before {
+  content: '';
+  background-image: url('../src/images/nextjs-logo.svg');
+}
+
 .fade-in {
   opacity: 0;
   animation: fadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
