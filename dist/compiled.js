@@ -2092,7 +2092,7 @@ axios
     const artistImage = response.data.artistImage.split(',')[0];
     const trackName = response.data.trackName;
     const dateAdded = response.data.dateAdded;
-    const dateAddedFormatted = new Date(dateAdded).toLocaleDateString('en-US', {
+    let dateAddedFormatted = new Date(dateAdded).toLocaleDateString('en-US', {
       month: 'short',
       day: 'numeric',
       year: 'numeric',
@@ -2102,10 +2102,24 @@ axios
       timeZoneName: 'short'
     });
 
+    // If date is today, return "Today" instead of the date. If date is yesterday, return "Yesterday" instead of the date.
+    const today = new Date();
+    const yesterday = new Date(today);
+    yesterday.setDate(yesterday.getDate() - 1);
+
+    let isToday = false;
+    let isYesterday = false;
+
+    if (new Date(dateAdded).toDateString() === today.toDateString()) {
+      isToday = true;
+    } else if (new Date(dateAdded).toDateString() === yesterday.toDateString()) {
+      isYesterday = true;
+    }
+
     const html = String.raw;
     const playerTemplate = html`
-      <div class="player text-sm w-[300px] bg-gray-100 p-2 pb-1 rounded-md">
-        <div class="player-inner bg-white p-2 rounded-sm flex gap-2 items-center justify-start shadow-sm">
+      <div class="player text-sm w-[300px] border border-black border-solid  rounded-sm shadow-md">
+        <div class="player-inner p-1 bg-white rounded-sm flex gap-2 items-center justify-start">
           <a href="${trackUrl}" class="size-12">
             <img class="block w-full rounded-sm" src="${artistImage}" alt="Image of ${artistName} album art" />
           </a>
@@ -2115,13 +2129,15 @@ axios
           </a>
           <a
             href="${trackUrl}"
-            class="ml-auto text-white bg-gray-300 rounded-full size-8 flex justify-center items-center">
+            class="ml-auto text-black mr-1 border border-black rounded-full size-8 flex justify-center items-center">
             <span class="play-triangle relative right-[-2px]"></span>
           </a>
         </div>
-        <div class="pt-1 text-xs flex gap-1 items-center">
-          <i class="fa-solid fa-heart text-gray-300"></i>
-          <p class="text-gray-400">Saved on ${dateAddedFormatted}</p>
+        <div class="p-1 text-xs flex gap-1 items-center border-t-black border-t">
+          <span class="text-black italic before:content-['>'] before:not-italic">
+            Track saved ${!!isToday ? 'today' : ''} ${!!isYesterday ? 'yesterday' : ''}
+            ${!isToday & !isYesterday ? dateAddedFormatted : ''}
+          </span>
         </div>
       </div>
     `;
