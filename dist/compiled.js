@@ -1091,7 +1091,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = defaults;
 
 }).call(this)}).call(this,require('_process'))
-},{"../adapters/http":2,"../adapters/xhr":2,"../core/enhanceError":12,"../helpers/normalizeHeaderName":26,"../utils":30,"./transitional":17,"_process":32}],17:[function(require,module,exports){
+},{"../adapters/http":2,"../adapters/xhr":2,"../core/enhanceError":12,"../helpers/normalizeHeaderName":26,"../utils":30,"./transitional":17,"_process":31}],17:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -1895,39 +1895,6 @@ module.exports = {
 };
 
 },{"./helpers/bind":19}],31:[function(require,module,exports){
-const axios = require('axios');
-
-//Get recent Spotify liked artists from spreadsheet
-axios
-  .get('/.netlify/functions/fetch-sheet')
-  .then(function (response) {
-    document.querySelector('.listening-to').innerHTML = response.data.artistName;
-    document.querySelector('.listening-to').href = response.data.artistUrl;
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-
-window.onload = function () {
-  const offText = document.querySelector('h1 span');
-  setTimeout(function () {
-    offText.classList.add('un-rotate');
-  }, 1500);
-
-  //Detect if tab is active to change favicon accordingly
-  document.addEventListener('visibilitychange', function () {
-    const isPageActive = !document.hidden;
-    const favicon = document.querySelector('[rel=icon]');
-
-    if (!isPageActive) {
-      favicon.href = './src/images/favicon/off/favicon-32x32.png';
-    } else {
-      favicon.href = './src/images/favicon/favicon-32x32.png';
-    }
-  });
-};
-
-},{"axios":1}],32:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -2113,4 +2080,72 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}]},{},[31]);
+},{}],32:[function(require,module,exports){
+const axios = require('axios');
+
+//Get recent Spotify liked artists from spreadsheet
+axios
+  .get('/.netlify/functions/fetch-sheet')
+  .then(function (response) {
+    const artistName = response.data.artistName;
+    const trackUrl = response.data.trackUrl;
+    const artistImage = response.data.artistImage.split(',')[0];
+    const trackName = response.data.trackName;
+    const dateAdded = response.data.dateAdded;
+    const dateAddedFormatted = new Date(dateAdded).toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+      timeZoneName: 'short'
+    });
+
+    const html = String.raw;
+    const playerTemplate = html`
+      <div class="player text-sm w-[300px] bg-gray-100 p-2 pb-1 rounded-md">
+        <div class="player-inner bg-white p-2 rounded-sm flex gap-2 items-center justify-start shadow-sm">
+          <a href="${trackUrl}" class="size-12">
+            <img class="block w-full rounded-sm" src="${artistImage}" alt="Image of ${artistName} album art" />
+          </a>
+          <a href="${trackUrl}" class="flex no-underline flex-col max-w-[60%]">
+            <span class="text-gray-600 font-bold text-nowrap text-ellipsis overflow-hidden">${artistName}</span>
+            <span class="text-gray-600 text-nowrap text-ellipsis overflow-hidden">${trackName}</span>
+          </a>
+          <a
+            href="${trackUrl}"
+            class="ml-auto text-white bg-gray-300 rounded-full size-8 flex justify-center items-center">
+            <span class="play-triangle relative right-[-2px]"></span>
+          </a>
+        </div>
+        <div class="pt-1 text-xs flex gap-1 items-center">
+          <i class="fa-solid fa-heart text-gray-300"></i>
+          <p class="text-gray-400">Saved on ${dateAddedFormatted}</p>
+        </div>
+      </div>
+    `;
+
+    const playerContainer = document.querySelector('.track-player');
+    playerContainer.innerHTML = playerTemplate;
+    playerContainer.classList.add('animate-slide-in');
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+window.onload = function () {
+  //Detect if tab is active to change favicon accordingly
+  document.addEventListener('visibilitychange', function () {
+    const isPageActive = !document.hidden;
+    const favicon = document.querySelector('[rel=icon]');
+
+    if (!isPageActive) {
+      favicon.href = './src/images/favicon/off/favicon-32x32.png';
+    } else {
+      favicon.href = './src/images/favicon/favicon-32x32.png';
+    }
+  });
+};
+
+},{"axios":1}]},{},[32]);
