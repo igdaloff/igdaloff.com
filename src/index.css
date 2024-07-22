@@ -78,7 +78,7 @@ a {
 
 @keyframes playerSlideIn {
   0% {
-    transform: translateY(120%);
+    transform: translateY(130%);
   }
   100% {
     transform: translateY(0);
