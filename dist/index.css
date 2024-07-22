@@ -644,11 +644,6 @@ video {
   transform-origin: left;
 }
 
-.translate-y-\[140\%\] {
-  --tw-translate-y: 140%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
 .translate-y-\[130\%\] {
   --tw-translate-y: 130%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -886,13 +881,17 @@ a {
 }
 
 .animate-slide-in {
-  animation: playerSlideIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: playerSlideIn 1.75s ease-in-out forwards;
   animation-delay: 1.2s;
 }
 
 @keyframes playerSlideIn {
   0% {
     transform: translateY(130%);
+  }
+
+  60% {
+    transform: translateY(-5%);
   }
 
   100% {

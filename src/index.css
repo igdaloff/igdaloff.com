@@ -72,13 +72,16 @@ a {
 }
 
 .animate-slide-in {
-  animation: playerSlideIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: playerSlideIn 1.75s ease-in-out forwards;
   animation-delay: 1.2s;
 }
 
 @keyframes playerSlideIn {
   0% {
     transform: translateY(130%);
+  }
+  60% {
+    transform: translateY(-5%);
   }
   100% {
     transform: translateY(0);
