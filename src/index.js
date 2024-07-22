@@ -12,10 +12,9 @@ axios
     let dateAddedFormatted = new Date(dateAdded).toLocaleDateString('en-US', {
       month: 'short',
       day: 'numeric',
-      year: 'numeric',
       hour: 'numeric',
       minute: 'numeric',
-      hour12: true,
+      hour12: false,
       timeZoneName: 'short'
     });
 
@@ -35,24 +34,24 @@ axios
 
     const html = String.raw;
     const playerTemplate = html`
-      <div class="player text-sm w-[300px] border border-black border-solid  rounded-sm shadow-md">
-        <div class="player-inner p-1 bg-white rounded-sm flex gap-2 items-center justify-start">
+      <div class="player text-sm sm:w-[300px] border border-black border-solid shadow-[4px_4px_5px_rgba(0,0,0,0.25)]">
+        <div class="player-inner p-1 bg-white flex gap-2 items-center justify-start">
           <a href="${trackUrl}" class="size-12">
             <img class="block w-full rounded-sm" src="${artistImage}" alt="Image of ${artistName} album art" />
           </a>
           <a href="${trackUrl}" class="flex no-underline flex-col max-w-[60%]">
-            <span class="text-gray-600 font-bold text-nowrap text-ellipsis overflow-hidden">${artistName}</span>
-            <span class="text-gray-600 text-nowrap text-ellipsis overflow-hidden">${trackName}</span>
+            <span class="font-bold text-nowrap text-ellipsis overflow-hidden sm:hover:underline">${artistName}</span>
+            <span class="text-nowrap text-ellipsis overflow-hidden sm:hover:underline">${trackName}</span>
           </a>
           <a
             href="${trackUrl}"
-            class="ml-auto text-black mr-1 border border-black rounded-full size-8 flex justify-center items-center">
+            class="ml-auto text-black sm:hover:text-white sm:hover:bg-black mr-1 border border-black rounded-full size-8 flex justify-center items-center">
             <span class="play-triangle relative right-[-2px]"></span>
           </a>
         </div>
         <div class="p-1 text-xs flex gap-1 items-center border-t-black border-t">
-          <span class="text-black italic before:content-['>'] before:not-italic">
-            Track saved ${!!isToday ? 'today' : ''} ${!!isYesterday ? 'yesterday' : ''}
+          <span class=" italic before:content-['>'] before:not-italic">
+            Last track saved ${!!isToday ? 'today' : ''} ${!!isYesterday ? 'yesterday' : ''}
             ${!isToday & !isYesterday ? dateAddedFormatted : ''}
           </span>
         </div>
