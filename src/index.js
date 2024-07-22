@@ -35,7 +35,7 @@ axios
     const html = String.raw;
     const playerTemplate = html`
       <div class="player text-sm sm:w-[300px] border border-black border-solid shadow-[4px_4px_5px_rgba(0,0,0,0.25)]">
-        <div class="player-inner p-1 bg-white flex gap-2 items-center justify-start">
+        <div class="player-inner p-1 flex gap-2 items-center justify-start">
           <a href="${trackUrl}" class="size-12">
             <img class="block w-full rounded-sm" src="${artistImage}" alt="Image of ${artistName} album art" />
           </a>
