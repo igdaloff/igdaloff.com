@@ -16,6 +16,16 @@ a {
   height: 15px;
 }
 
+.tailwind:before {
+  content: '';
+  background-image: url('../src/images/tailwind-logo.png');
+}
+
+.nextjs:before {
+  content: '';
+  background-image: url('../src/images/nextjs-logo.svg');
+}
+
 .fade-in {
   opacity: 0;
   animation: fadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -49,4 +59,31 @@ a {
 
 .fade-in:nth-child(4) {
   animation-delay: 0.6s;
+}
+
+.play-triangle {
+  border-color: currentColor;
+  border-top-width: 7px;
+  border-bottom-width: 7px;
+  border-top-color: transparent;
+  border-left-width: 11px;
+  border-bottom-color: transparent;
+  border-style: solid;
+}
+
+.animate-slide-in {
+  animation: playerSlideIn 1.75s ease-in-out forwards;
+  animation-delay: 1.2s;
+}
+
+@keyframes playerSlideIn {
+  0% {
+    transform: translateY(130%);
+  }
+  60% {
+    transform: translateY(-5%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
