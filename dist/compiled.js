@@ -1091,7 +1091,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = defaults;
 
 }).call(this)}).call(this,require('_process'))
-},{"../adapters/http":2,"../adapters/xhr":2,"../core/enhanceError":12,"../helpers/normalizeHeaderName":26,"../utils":30,"./transitional":17,"_process":32}],17:[function(require,module,exports){
+},{"../adapters/http":2,"../adapters/xhr":2,"../core/enhanceError":12,"../helpers/normalizeHeaderName":26,"../utils":30,"./transitional":17,"_process":31}],17:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -1895,39 +1895,6 @@ module.exports = {
 };
 
 },{"./helpers/bind":19}],31:[function(require,module,exports){
-const axios = require('axios');
-
-//Get recent Spotify liked artists from spreadsheet
-axios
-  .get('/.netlify/functions/fetch-sheet')
-  .then(function (response) {
-    document.querySelector('.listening-to').innerHTML = response.data.artistName;
-    document.querySelector('.listening-to').href = response.data.artistUrl;
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-
-window.onload = function () {
-  const offText = document.querySelector('h1 span');
-  setTimeout(function () {
-    offText.classList.add('un-rotate');
-  }, 1500);
-
-  //Detect if tab is active to change favicon accordingly
-  document.addEventListener('visibilitychange', function () {
-    const isPageActive = !document.hidden;
-    const favicon = document.querySelector('[rel=icon]');
-
-    if (!isPageActive) {
-      favicon.href = './src/images/favicon/off/favicon-32x32.png';
-    } else {
-      favicon.href = './src/images/favicon/favicon-32x32.png';
-    }
-  });
-};
-
-},{"axios":1}],32:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -2113,4 +2080,32 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}]},{},[31]);
+},{}],32:[function(require,module,exports){
+const axios = require('axios');
+
+//Get recent Spotify liked artists from spreadsheet
+axios
+  .get('/.netlify/functions/fetch-sheet')
+  .then(function (response) {
+    document.querySelector('.listening-to').innerHTML = response.data.artistName;
+    document.querySelector('.listening-to').href = response.data.artistUrl;
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+window.onload = function () {
+  //Detect if tab is active to change favicon accordingly
+  document.addEventListener('visibilitychange', function () {
+    const isPageActive = !document.hidden;
+    const favicon = document.querySelector('[rel=icon]');
+
+    if (!isPageActive) {
+      favicon.href = './src/images/favicon/off/favicon-32x32.png';
+    } else {
+      favicon.href = './src/images/favicon/favicon-32x32.png';
+    }
+  });
+};
+
+},{"axios":1}]},{},[32]);
