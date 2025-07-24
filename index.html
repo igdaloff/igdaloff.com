@@ -29,7 +29,7 @@
   </head>
   <body class="max-w-[60ch] m-auto py-20 px-8 font-normal text-black">
     <header>
-      <h1 class="font-bold text-3xl font-title group">
+      <h1 class="font-semibold text-3xl group">
         Nathan Igdal<span class="inline-block group-hover:rotate-[25deg] transition-transform origin-left duration-700"
           >off</span
         >
@@ -39,15 +39,10 @@
     <main class="mt-8 space-y-12">
       <div class="fade-in">
         <p class="inline">
-          <strong class="font-semibold">Front-End Developer & Product Manager.</strong> I enjoy building digital
+          <strong class="font-semibold">Front-End Developer & Product Manager</strong>. I enjoy building digital
           products, previously at <a href="//atlasobscura.com">Atlas Obscura</a> and
           <a href="//bighuman.com">Big Human</a>, now as a freelancer. I care about simplicity, usability, and the
-          intersection of technology and music. Lately I've been listening to
-          <a
-            href="https://open.spotify.com/artist/67zR9a98QqWJwpO7wBrGog?si=ADqIppYHQqeD5PrmPjUfAg"
-            class="listening-to"
-            >Sonny & The Sunsets</a
-          >.
+          intersection of technology and music.
         </p>
         <input type="checkbox" class="opacity-0 w-0 ml-[-0.25em] peer" id="checkbox" />
         <label
@@ -58,7 +53,8 @@
         >
         <div
           class="max-h-0 peer-checked:max-h-60 md:peer-hover:max-h-60 hover:max-h-60 overflow-hidden transition-all duration-700">
-          <p class="inline-block border-dashed border border-black mt-3 rounded-lg px-3 py-2 italic text-pretty">
+          <p
+            class="inline-block border-dashed border border-black mt-3 rounded-lg px-3 py-2 italic text-pretty text-sm">
             This is the artist of my most recently saved Spotify track, shown here using the Spotify API, a Netlify
             function and a Google sheet.
             <a href="https://github.com/igdaloff/igdaloff.com/blob/main/netlify/functions/fetch-sheet.js"
@@ -69,13 +65,12 @@
         <p class="mt-4">
           Links: <a href="mailto:louis.nathan@gmail.com">Email</a>,
           <a href="https://www.linkedin.com/in/nathanigdaloff/">LinkedIn</a>,
-          <a href="https://github.com/igdaloff">Github</a>,
-          <a href="https://open.spotify.com/artist/4yIdfevsCqbLiWzi2KfKe9?si=i5Ge5L_STjKcKVlJjgOVYw">Music</a>
+          <a href="https://github.com/igdaloff">Github</a>, intersection of technology and music.
         </p>
       </div>
 
       <div class="fade-in">
-        <h2 class="font-bold">What I Build With</h2>
+        <h2 class="font-bold">Stack</h2>
         <ul>
           <li>
             <h3 class="underline mt-4">Front-End</h3>
@@ -100,11 +95,7 @@
         </ul>
       </div>
       <div class="fade-in">
-        <h2 class="font-bold">Recent Work</h2>
-        <p>View recent professional work in my <a href="https://read.cv/iggy">CV</a>.</p>
-      </div>
-      <div class="fade-in">
-        <h2 class="font-bold">Personal Projects</h2>
+        <h2 class="font-bold">Playground</h2>
         <ul>
           <li>
             <h3 class="mt-4"><a href="https://wiki-walking-guide.netlify.app/">Wiki Walking Guide</a> →</h3>
@@ -116,7 +107,7 @@
           </li>
           <li>
             <h3 class="mt-4"><a href="//concertstonight.co">Gig List</a> →</h3>
-            <p>Find concerts by generating random, nearby shows happenning soon.</p>
+            <p>Find concerts by generating random, nearby shows happening soon.</p>
           </li>
           <li>
             <h3 class="mt-4">
@@ -131,9 +122,9 @@
         </ul>
       </div>
     </main>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;600&display=swap" rel="stylesheet" />
+    <div
+      class="track-player translate-y-[130%] animate-slide-in fixed left-4 sm:left-auto right-4 bottom-5 sm:bottom-4 bg-white"></div>
+
     <script src="https://kit.fontawesome.com/4cc442f4fd.js" crossorigin="anonymous"></script>
   </body>
 </html>
