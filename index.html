@@ -28,93 +28,88 @@
     <script src="dist/compiled.js" defer></script>
   </head>
   <body>
-    <header class="transport">
-      <div class="controls">
-        <span class="time"><span id="elapsed">0:00</span> / <span id="total">0:00</span></span>
-        <button class="play" id="play" type="button" aria-pressed="false">Play</button>
-      </div>
-      <div class="wave-wrap">
-        <canvas
-          id="wave"
-          role="slider"
-          tabindex="0"
-          aria-label="Page position"
-          aria-valuemin="0"
-          aria-valuemax="100"
-          aria-valuenow="0"></canvas>
-        <div class="tip" id="tip"></div>
-      </div>
-      <div class="now" aria-live="polite">Now playing <strong id="nowLabel">Intro</strong></div>
+    <header class="masthead">
+      <h1 class="name">
+        <span class="sr-only">Nathan Igdaloff</span
+        ><span class="name-rest" aria-hidden="true"><span class="name-first">Nathan</span>Igdal</span
+        ><button class="power" id="power" type="button" aria-pressed="false" aria-label="Turn site on" data-zap="3">
+          <span aria-hidden="true">off</span>
+        </button>
+      </h1>
+      <div class="wire wire-main" aria-hidden="true"></div>
     </header>
 
-    <div class="grain" aria-hidden="true"></div>
-
-    <main>
-      <section data-track="Intro">
-        <button class="cue" type="button"></button>
-        <h1>
-          <span class="sr-only">Nathan Igdaloff</span><span class="name-rest" aria-hidden="true">Nathan Igdal</span
-          ><button class="power" id="power" type="button" aria-pressed="false" aria-label="Turn site on" data-zap="0.6">
-            <span aria-hidden="true">off</span>
-          </button>
-        </h1>
-        <p>
+    <main class="board">
+      <section class="intro">
+        <h2 class="label">About</h2>
+        <p class="lede">
           <strong>Front-End Developer &amp; Product Director.</strong> I enjoy building digital products, previously at
-          <a href="https://atlasobscura.com">Atlas Obscura</a> and <a href="https://bighuman.com">Big Human</a>, now as a
-          freelancer. I care about simplicity, usability, making software and making music. These days my work lives
-          increasingly at the intersection of code, no-code, and AI.
+          <a href="https://atlasobscura.com" data-zap="1.4">Atlas Obscura</a> and
+          <a href="https://bighuman.com" data-zap="1.4">Big Human</a>, now as a freelancer. I care about simplicity,
+          usability, making software and making music. These days my work lives increasingly at the intersection of
+          code, no-code, and AI.
         </p>
       </section>
 
-      <section data-track="Links">
-        <button class="cue" type="button"></button>
-        <h2>Links</h2>
-        <ul class="inline-list">
-          <li><a href="mailto:louis.nathan@gmail.com">Email</a></li>
-          <li><a href="https://www.linkedin.com/in/nathanigdaloff/">LinkedIn</a></li>
-          <li><a href="https://github.com/igdaloff">Github</a></li>
-          <li><a href="https://open.spotify.com/artist/4yIdfevsCqbLiWzi2KfKe9?si=8785ed438b744982">Music</a></li>
+      <nav class="links" aria-labelledby="links-label">
+        <h2 class="label" id="links-label">Links</h2>
+        <ul>
+          <li><a href="mailto:louis.nathan@gmail.com" data-zap="1.8">Email</a></li>
+          <li><a href="https://www.linkedin.com/in/nathanigdaloff/" data-zap="1.8">LinkedIn</a></li>
+          <li><a href="https://github.com/igdaloff" data-zap="1.8">Github</a></li>
+          <li>
+            <a href="https://open.spotify.com/artist/4yIdfevsCqbLiWzi2KfKe9?si=8785ed438b744982" data-zap="1.8">Music</a>
+          </li>
         </ul>
-      </section>
+      </nav>
 
-      <section data-track="Stack">
-        <button class="cue" type="button"></button>
-        <h2>Stack</h2>
+      <section class="stack">
+        <h2 class="label">Stack</h2>
         <p>Claude / API / MCP, Webflow, CSS, Javascript, Figma, NextJS, Vue, Tailwind</p>
       </section>
 
-      <section data-track="Wiki Walking Guide" class="project">
-        <button class="cue" type="button"></button>
-        <h3><a href="https://wiki-walking-guide.netlify.app/">Wiki Walking Guide →</a></h3>
-        <p>
-          An AI walking tour app that ranks nearby Wikipedia places by uniqueness. Uses Claude and Google TTS to generate
-          and narrate personalized tours.
-        </p>
-      </section>
-
-      <section data-track="Day List" class="project">
-        <button class="cue" type="button"></button>
-        <h3><a href="//daylist-igdaloff.vercel.app">Day List →</a></h3>
-        <p>Plan your day and keep a journal in one place.</p>
-      </section>
-
-      <section data-track="Gig List" class="project">
-        <button class="cue" type="button"></button>
-        <h3><a href="https://concerts-tonight.netlify.app">Gig List →</a></h3>
-        <p>Find concerts by generating random, nearby shows happening soon.</p>
-      </section>
-
-      <section data-track="Milkshake" class="project">
-        <button class="cue" type="button"></button>
-        <h3>
-          <a href="//thenextweb.com/news/milkshake-simple-way-share-three-track-music-playlists-chat-friends-real-time"
-            >Milkshake →</a
-          >
-        </h3>
-        <p>Create and listen to playlists in real-time with a friend over websockets.</p>
+      <section class="playground" aria-labelledby="playground-label">
+        <h2 class="label" id="playground-label">Playground</h2>
+        <ol class="projects">
+          <li class="project" data-circuit>
+            <div class="wire" aria-hidden="true"></div>
+            <span class="project-n" aria-hidden="true">01</span>
+            <h3><a href="https://wiki-walking-guide.netlify.app/" data-zap="2.4">Wiki Walking Guide</a></h3>
+            <p>
+              An AI walking tour app that ranks nearby Wikipedia places by uniqueness. Uses Claude and Google TTS to
+              generate and narrate personalized tours.
+            </p>
+          </li>
+          <li class="project" data-circuit>
+            <div class="wire" aria-hidden="true"></div>
+            <span class="project-n" aria-hidden="true">02</span>
+            <h3><a href="//daylist-igdaloff.vercel.app" data-zap="2.4">Day List</a></h3>
+            <p>Plan your day and keep a journal in one place.</p>
+          </li>
+          <li class="project" data-circuit>
+            <div class="wire" aria-hidden="true"></div>
+            <span class="project-n" aria-hidden="true">03</span>
+            <h3><a href="https://concerts-tonight.netlify.app" data-zap="2.4">Gig List</a></h3>
+            <p>Find concerts by generating random, nearby shows happening soon.</p>
+          </li>
+          <li class="project" data-circuit>
+            <div class="wire" aria-hidden="true"></div>
+            <span class="project-n" aria-hidden="true">04</span>
+            <h3>
+              <a
+                href="//thenextweb.com/news/milkshake-simple-way-share-three-track-music-playlists-chat-friends-real-time"
+                data-zap="2.4"
+                >Milkshake</a
+              >
+            </h3>
+            <p>Create and listen to playlists in real-time with a friend over websockets.</p>
+          </li>
+        </ol>
+        <div class="wire" aria-hidden="true"></div>
       </section>
     </main>
 
+    <div class="grain" aria-hidden="true"></div>
     <div class="track-player"></div>
   </body>
 </html>

@@ -1,7 +1,7 @@
 // Cached palette. CSS custom properties are the source of truth; canvas code reads this cache
 // instead of calling getComputedStyle every frame. Refreshed whenever the power state changes.
 
-const KEYS = ['ink', 'paper', 'body', 'muted', 'unplayed', 'hover', 'ghost'];
+const KEYS = ['ink', 'paper', 'spark', 'glow'];
 const palette = {};
 const listeners = [];
 
