@@ -1,81 +1,74 @@
-const axios = require('axios');
+// igdaloff.com: the page is a recording. Scroll position is the playhead.
 
-//Get recent Spotify liked artists from spreadsheet
-axios
-  .get('/.netlify/functions/fetch-sheet')
-  .then(function (response) {
-    const artistName = response.data.artistName;
-    const trackUrl = response.data.trackUrl;
-    const artistImage = response.data.artistImage.split(',')[0];
-    const trackName = response.data.trackName;
-    const dateAdded = response.data.dateAdded;
-    let dateAddedFormatted = new Date(dateAdded).toLocaleDateString('en-US', {
-      month: 'short',
-      day: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric',
-      hour12: false,
-      timeZoneName: 'short'
-    });
+const track = require('./site/track');
+const palette = require('./site/palette');
+const rail = require('./site/rail');
+const type = require('./site/type');
+const playback = require('./site/playback');
+const zap = require('./site/zap');
+const card = require('./site/card');
+const { verticalMQ, clamp } = require('./site/util');
+require('./site/power');
 
-    // If date is today, return "Today" instead of the date. If date is yesterday, return "Yesterday" instead of the date.
-    const today = new Date();
-    const yesterday = new Date(today);
-    yesterday.setDate(yesterday.getDate() - 1);
+const elapsedEl = document.getElementById('elapsed');
+const totalEl = document.getElementById('total');
+const nowLabel = document.getElementById('nowLabel');
+const slider = document.getElementById('wave');
+const { fmt } = track;
 
-    let isToday = false;
-    let isYesterday = false;
+totalEl.textContent = fmt(track.totalSec);
 
-    if (new Date(dateAdded).toDateString() === today.toDateString()) {
-      isToday = true;
-    } else if (new Date(dateAdded).toDateString() === yesterday.toDateString()) {
-      isYesterday = true;
-    }
+let lastSec = null;
+function update() {
+  const p = clamp(track.scrollToP(scrollY));
+  const s = track.sectionAt(p);
+  const time = fmt(track.timeAt(p));
+  elapsedEl.textContent = time;
+  slider.setAttribute('aria-valuenow', Math.round(p * 100));
+  slider.setAttribute('aria-valuetext', `${s.label}, ${time} of ${fmt(track.totalSec)}`);
+  if (s !== lastSec) {
+    lastSec?.el.classList.remove('is-playing');
+    s.el.classList.add('is-playing');
+    nowLabel.textContent = s.label;
+    lastSec = s;
+  }
+  type.ink();
+  rail.draw();
+}
 
-    const html = String.raw;
-    const playerTemplate = html`
-      <div class="player text-sm sm:w-[300px] border border-black border-solid shadow-[4px_4px_5px_rgba(0,0,0,0.25)]">
-        <div class="player-inner p-1 flex gap-2 items-center justify-start">
-          <a href="${trackUrl}" class="size-12">
-            <img class="block w-full rounded-sm" src="${artistImage}" alt="Image of ${artistName} album art" />
-          </a>
-          <a href="${trackUrl}" class="flex no-underline flex-col max-w-[60%]">
-            <span class="font-bold text-nowrap text-ellipsis overflow-hidden sm:hover:underline">${artistName}</span>
-            <span class="text-nowrap text-ellipsis overflow-hidden sm:hover:underline">${trackName}</span>
-          </a>
-          <a
-            href="${trackUrl}"
-            class="ml-auto text-black sm:hover:text-white sm:hover:bg-black mr-1 border border-black rounded-full size-8 flex justify-center items-center">
-            <span class="play-triangle relative right-[-2px]"></span>
-          </a>
-        </div>
-        <div class="p-1 text-xs flex gap-1 items-center border-t-black border-t">
-          <span class=" italic before:content-['>'] before:not-italic">
-            Last track saved ${!!isToday ? 'today' : ''} ${!!isYesterday ? 'yesterday' : ''}
-            ${!isToday & !isYesterday ? dateAddedFormatted : ''}
-          </span>
-        </div>
-      </div>
-    `;
-
-    const playerContainer = document.querySelector('.track-player');
-    playerContainer.innerHTML = playerTemplate;
-    playerContainer.classList.add('animate-slide-in');
-  })
-  .catch(function (error) {
-    console.log(error);
+function labelCues() {
+  track.sections.forEach(s => {
+    const cue = s.el.querySelector('.cue');
+    cue.textContent = fmt(s.tStart);
+    cue.setAttribute('aria-label', `Jump to ${s.label} at ${fmt(s.tStart)}`);
+    cue.onclick = () => playback.seek(s.p0 + 0.0001);
   });
+}
 
-window.onload = function () {
-  //Detect if tab is active to change favicon accordingly
-  document.addEventListener('visibilitychange', function () {
-    const isPageActive = !document.hidden;
-    const favicon = document.querySelector('[rel=icon]');
+function relayout() {
+  track.measure();
+  rail.build();
+  labelCues();
+  type.measure();
+  update();
+}
 
-    if (!isPageActive) {
-      favicon.href = './src/images/favicon/off/favicon-32x32.png';
-    } else {
-      favicon.href = './src/images/favicon/favicon-32x32.png';
-    }
-  });
-};
+palette.refresh();
+palette.onChange(() => {
+  rail.draw();
+  zap.refreshColor();
+});
+type.init();
+window.addEventListener('scroll', update, { passive: true });
+window.addEventListener('resize', relayout);
+verticalMQ.addEventListener?.('change', relayout);
+relayout();
+document.fonts?.ready.then(relayout);
+
+card.load();
+
+// Favicon switches "off" while the tab is in the background
+document.addEventListener('visibilitychange', () => {
+  const favicon = document.querySelector('[rel=icon]');
+  favicon.href = document.hidden ? './src/images/favicon/off/favicon-32x32.png' : './src/images/favicon/favicon-32x32.png';
+});

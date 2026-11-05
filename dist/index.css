@@ -554,36 +554,28 @@ video {
   --tw-contain-style:  ;
 }
 
-.fixed {
-  position: fixed;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.visible {
+  visibility: visible;
 }
 
 .relative {
   position: relative;
 }
 
-.bottom-5 {
-  bottom: 1.25rem;
-}
-
-.left-4 {
-  left: 1rem;
-}
-
-.right-4 {
-  right: 1rem;
-}
-
 .right-\[-2px\] {
   right: -2px;
-}
-
-.m-auto {
-  margin: auto;
-}
-
-.mb-4 {
-  margin-bottom: 1rem;
 }
 
 .ml-auto {
@@ -592,14 +584,6 @@ video {
 
 .mr-1 {
   margin-right: 0.25rem;
-}
-
-.mt-4 {
-  margin-top: 1rem;
-}
-
-.mt-8 {
-  margin-top: 2rem;
 }
 
 .block {
@@ -636,17 +620,12 @@ video {
   max-width: 60%;
 }
 
-.max-w-\[60ch\] {
-  max-width: 60ch;
-}
-
-.origin-left {
-  transform-origin: left;
-}
-
-.translate-y-\[130\%\] {
-  --tw-translate-y: 130%;
+.transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.resize {
+  resize: both;
 }
 
 .flex-col {
@@ -673,12 +652,6 @@ video {
   gap: 0.5rem;
 }
 
-.space-y-12 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(3rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(3rem * var(--tw-space-y-reverse));
-}
-
 .overflow-hidden {
   overflow: hidden;
 }
@@ -691,10 +664,6 @@ video {
   text-wrap: nowrap;
 }
 
-.text-pretty {
-  text-wrap: pretty;
-}
-
 .rounded-full {
   border-radius: 9999px;
 }
@@ -703,50 +672,8 @@ video {
   border-radius: 0.125rem;
 }
 
-.border {
-  border-width: 1px;
-}
-
-.border-t {
-  border-top-width: 1px;
-}
-
-.border-solid {
-  border-style: solid;
-}
-
-.border-black {
-  --tw-border-opacity: 1;
-  border-color: rgb(34 34 34 / var(--tw-border-opacity));
-}
-
-.border-t-black {
-  --tw-border-opacity: 1;
-  border-top-color: rgb(34 34 34 / var(--tw-border-opacity));
-}
-
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
 .p-1 {
   padding: 0.25rem;
-}
-
-.px-8 {
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
-.py-20 {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-}
-
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
 }
 
 .text-sm {
@@ -763,102 +690,547 @@ video {
   font-weight: 700;
 }
 
-.font-normal {
-  font-weight: 300;
-}
-
-.font-semibold {
-  font-weight: 600;
-}
-
 .italic {
   font-style: italic;
 }
 
-.text-black {
-  --tw-text-opacity: 1;
-  color: rgb(34 34 34 / var(--tw-text-opacity));
+.underline {
+  text-decoration-line: underline;
 }
 
 .no-underline {
   text-decoration-line: none;
 }
 
-.shadow-\[4px_4px_5px_rgba\(0\2c 0\2c 0\2c 0\.25\)\] {
-  --tw-shadow: 4px 4px 5px rgba(0,0,0,0.25);
-  --tw-shadow-colored: 4px 4px 5px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+/* Palette. Canvas code reads these through a cache that refreshes on power change,
+   so any change here flows through automatically. */
+
+:root {
+  --ink: #000;
+  --paper: #fff;
+  --body: #333;
+  --muted: #6b6b6b;
+  --unplayed: #d6d6d6;
+  --hover: #9a9a9a;
+  --ghost: #767676;
+  /* unread text: 4.5:1 on both papers, so ghost copy still meets WCAG AA */
+  --grain: 0.05;
+  --measure: 36rem;
+  --gutter: 4.5rem;
+  --rail: 124px;
 }
 
-.transition-transform {
-  transition-property: transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+body.on {
+  --ink: #fff;
+  --paper: #000;
+  --body: #cfcfcf;
+  --muted: #9a9a9a;
+  --unplayed: #3a3a3a;
+  --hover: #777;
+  --grain: 0.09;
 }
 
-.duration-700 {
-  transition-duration: 700ms;
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
-a {
-  text-decoration: underline;
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 17px/1.55 -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-.brand-logo:before {
-  position: relative;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Brownout: during the power flicker the lights sag before they hold */
+
+body.sag main,
+body.sag .transport,
+body.sag .track-player {
+  opacity: 0.55;
+}
+
+/* The "off" in Igdaloff is the site's power switch */
+
+.power {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 0;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
   display: inline-block;
-  top: 2px;
-  margin-right: 3px;
-  background-size: 15px 15px;
-  width: 15px;
-  height: 15px;
 }
 
-.tailwind:before {
-  content: '';
-  background-image: url('../src/images/tailwind-logo.png');
+.power > span {
+  display: inline-block;
 }
 
-.nextjs:before {
-  content: '';
-  background-image: url('../src/images/nextjs-logo.svg');
+.power.flip {
+  animation: flipIn 0.3s ease-out;
 }
 
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+@keyframes flipIn {
+  from {
+    transform: perspective(200px) rotateX(90deg);
+  }
 }
 
-@keyframes fadeIn {
+/* Hover preview: the switch flickers like a live wire */
+
+.power:hover > span,
+.power:focus-visible > span {
+  animation: crackle 0.4s steps(1) infinite;
+}
+
+@keyframes crackle {
   0% {
-    opacity: 0;
-    translate: 0 25px;
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  12% {
+    transform: translate(0.7px, -0.5px);
+  }
+
+  20% {
+    opacity: 0.7;
+  }
+
+  24% {
+    opacity: 1;
+  }
+
+  36% {
+    transform: translate(-0.6px, 0.6px);
+  }
+
+  50% {
+    transform: translate(0.4px, 0.7px);
+  }
+
+  62% {
+    opacity: 0.8;
+  }
+
+  66% {
+    opacity: 1;
+  }
+
+  78% {
+    transform: translate(-0.7px, -0.3px);
+  }
+}
+
+/* On: the rest of the name cuts out, leaving only "on" */
+
+.name-rest.gone {
+  opacity: 0;
+  animation: flickerOut 0.5s steps(1) forwards;
+}
+
+.name-rest.back {
+  animation: flickerIn 0.35s steps(1);
+}
+
+@keyframes flickerOut {
+  0% {
+    opacity: 1;
+  }
+
+  15% {
+    opacity: 0.2;
+  }
+
+  25% {
+    opacity: 0.9;
   }
 
   40% {
-    translate: 0 -4px;
+    opacity: 0;
   }
 
+  55% {
+    opacity: 0.6;
+  }
+
+  70%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes flickerIn {
+  0% {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 0.7;
+  }
+
+  45% {
+    opacity: 0.1;
+  }
+
+  70%,
   100% {
     opacity: 1;
-    translate: 0;
   }
 }
 
-.fade-in:nth-child(1) {
-  animation-delay: 0.1s;
+/* Background signal lines, only visible while on */
+
+.pulse-layer {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
 }
 
-.fade-in:nth-child(2) {
-  animation-delay: 0.2s;
+body.on .pulse-layer {
+  opacity: 1;
 }
 
-.fade-in:nth-child(3) {
-  animation-delay: 0.4s;
+main {
+  position: relative;
+  z-index: 1;
 }
 
-.fade-in:nth-child(4) {
-  animation-delay: 0.6s;
+/* Grain over the whole page: paper tooth when off, film grain when on.
+   One static SVG noise tile used as a mask, so it takes its color from the palette
+   and costs nothing per frame. While on, the tile jumps around like a projected print. */
+
+.grain {
+  position: fixed;
+  inset: -100px;
+  z-index: 30;
+  pointer-events: none;
+  background: var(--ink);
+  opacity: var(--grain);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.4 0 0 0 -1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.4 0 0 0 -1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+body.on .grain {
+  animation: grain 0.6s steps(1) infinite;
+}
+
+@keyframes grain {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  20% {
+    transform: translate(-37px, 23px);
+  }
+
+  40% {
+    transform: translate(51px, -14px);
+  }
+
+  60% {
+    transform: translate(-19px, -61px);
+  }
+
+  80% {
+    transform: translate(66px, 42px);
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* Transport rail: the whole page as one track, read top to bottom */
+
+.transport {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  width: var(--rail);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem 1rem 1.25rem 1.25rem;
+  background: var(--paper);
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 14px;
+}
+
+.time {
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
+.play {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 0;
+  background: none;
+  padding: 0;
+  align-self: flex-start;
+  font: inherit;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+}
+
+.play:hover {
+  text-decoration-thickness: 2px;
+}
+
+.now {
+  font-size: 13px;
+  line-height: 1.3;
+  color: var(--muted);
+}
+
+.now strong {
+  display: block;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.wave-wrap {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+
+#wave {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.tip {
+  position: absolute;
+  left: calc(100% + 10px);
+  transform: translateY(-50%);
+  font-size: 12px;
+  line-height: 1;
+  padding: 5px 7px;
+  background: var(--ink);
+  color: var(--paper);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.tip.on {
+  opacity: 1;
+}
+
+/* Content */
+
+main {
+  padding: 4rem 1.25rem 40vh calc(var(--rail) + 1.5rem);
+  max-width: calc(var(--rail) + var(--measure) + var(--gutter) + 4rem);
+}
+
+section {
+  position: relative;
+  padding-left: var(--gutter);
+  margin-bottom: 3.25rem;
+}
+
+.cue {
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  font-size: 13px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.cue:hover {
+  color: var(--ink);
+}
+
+section.is-playing .cue {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.1rem;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin: 0 0 1rem;
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+}
+
+strong {
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+  max-width: var(--measure);
+}
+
+.project p {
+  color: var(--body);
+}
+
+.inline-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.1rem;
+}
+
+/* Each word is its own box so it can move without reflowing the line */
+
+.w {
+  display: inline-block;
+}
+
+a .w {
+  -webkit-text-decoration: underline 1px;
+          text-decoration: underline 1px;
+}
+
+a:hover .w {
+  text-decoration-thickness: 2px;
+}
+
+/* The text is the recording. Unread words are carbon ghost; the reading line inks them.
+   Fresh ink lands darker than the dried text, bleeds a little into the paper, then dries to matte. */
+
+.w {
+  color: var(--ghost);
+}
+
+.w.inked {
+  color: inherit;
+  animation: wet 1.1s ease-out;
+}
+
+@keyframes wet {
+  from {
+    color: var(--ink);
+    text-shadow: 0 0 0.6px var(--ink), 0 0 3px color-mix(in srgb, var(--ink) 40%, transparent);
+  }
+
+  to {
+    text-shadow: 0 0 0 transparent, 0 0 0 transparent;
+  }
+}
+
+/* Electric underline: one shared overlay draws the live signal, the native underline steps aside */
+
+.zap-layer {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 20;
+}
+
+a.zap,
+a.zap .w,
+.play.zap {
+  text-decoration-color: transparent;
+}
+
+/* "Last track saved" card */
+
+.track-player {
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1.25rem;
+  z-index: 15;
+  transform: translateY(130%);
+}
+
+.player {
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  box-shadow: 4px 4px 0 color-mix(in srgb, var(--ink) 18%, transparent);
+}
+
+.player a {
+  text-decoration: none;
+}
+
+.player-play {
+  border: 1px solid var(--ink);
+}
+
+.player-play:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.player-foot {
+  border-top: 1px solid var(--ink);
 }
 
 .play-triangle {
@@ -890,6 +1262,88 @@ a {
   }
 }
 
+@media (min-width: 640px) {
+  .track-player {
+    left: auto;
+    bottom: 1rem;
+  }
+}
+
+/* Small screens: the rail folds into a horizontal bar on top */
+
+@media (max-width: 719px) {
+  :root {
+    --gutter: 0rem;
+  }
+
+  .transport {
+    position: sticky;
+    bottom: auto;
+    width: auto;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.9rem 1.25rem 0.75rem;
+  }
+
+  .controls {
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+
+  .now {
+    display: none;
+  }
+
+  .wave-wrap {
+    flex: none;
+    height: 52px;
+  }
+
+  .tip {
+    left: 0;
+    bottom: calc(100% + 6px);
+    transform: translateX(-50%);
+  }
+
+  main {
+    padding: 2.5rem 1.25rem 40vh;
+  }
+
+  .cue {
+    position: static;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+}
+
+/* Reduced motion: movement off, meaning kept. Everything reads as inked, the palette still inverts. */
+
+@media (prefers-reduced-motion: reduce) {
+  .power.flip,
+  .power > span,
+  .name-rest.gone,
+  .name-rest.back,
+  body.on .grain,
+  .animate-slide-in {
+    animation: none !important;
+  }
+
+  .animate-slide-in {
+    transform: none;
+  }
+
+  .w,
+  .w.inked {
+    color: inherit;
+    animation: none;
+  }
+}
+
 .before\:not-italic::before {
   content: var(--tw-content);
   font-style: normal;
@@ -900,32 +1354,9 @@ a {
   content: var(--tw-content);
 }
 
-.group:hover .group-hover\:rotate-\[25deg\] {
-  --tw-rotate: 25deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
 @media (min-width: 640px) {
-  .sm\:bottom-4 {
-    bottom: 1rem;
-  }
-
-  .sm\:left-auto {
-    left: auto;
-  }
-
   .sm\:w-\[300px\] {
     width: 300px;
-  }
-
-  .sm\:hover\:bg-black:hover {
-    --tw-bg-opacity: 1;
-    background-color: rgb(34 34 34 / var(--tw-bg-opacity));
-  }
-
-  .sm\:hover\:text-white:hover {
-    --tw-text-opacity: 1;
-    color: rgb(255 255 255 / var(--tw-text-opacity));
   }
 
   .sm\:hover\:underline:hover {
