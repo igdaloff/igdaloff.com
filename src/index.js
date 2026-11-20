@@ -1,43 +1,47 @@
-const axios = require('axios');
+// Loaded as a native ES module (deferred), so the DOM is ready when this runs.
 
-//Get recent Spotify liked artists from spreadsheet
-axios
-  .get('/.netlify/functions/fetch-sheet')
-  .then(function (response) {
-    const artistName = response.data.artistName;
-    const trackUrl = response.data.trackUrl;
-    const artistImage = response.data.artistImage.split(',')[0];
-    const trackName = response.data.trackName;
-    const dateAdded = response.data.dateAdded;
-    let dateAddedFormatted = new Date(dateAdded).toLocaleDateString('en-US', {
-      month: 'short',
-      day: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric',
-      hour12: false,
-      timeZoneName: 'short'
-    });
+const escapeHtml = (value = '') =>
+  String(value).replace(/[&<>"']/g, (char) => `&#${char.charCodeAt(0)};`);
 
-    // If date is today, return "Today" instead of the date. If date is yesterday, return "Yesterday" instead of the date.
-    const today = new Date();
-    const yesterday = new Date(today);
-    yesterday.setDate(yesterday.getDate() - 1);
+function describeDateAdded(dateAdded) {
+  const date = new Date(dateAdded);
+  const today = new Date();
+  const yesterday = new Date(today);
+  yesterday.setDate(today.getDate() - 1);
 
-    let isToday = false;
-    let isYesterday = false;
+  if (date.toDateString() === today.toDateString()) return 'today';
+  if (date.toDateString() === yesterday.toDateString()) return 'yesterday';
+  return date.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: false,
+    timeZoneName: 'short'
+  });
+}
 
-    if (new Date(dateAdded).toDateString() === today.toDateString()) {
-      isToday = true;
-    } else if (new Date(dateAdded).toDateString() === yesterday.toDateString()) {
-      isYesterday = true;
-    }
+// Show the most recently saved Spotify track (see netlify/functions/fetch-sheet.mjs)
+async function renderTrackPlayer() {
+  const container = document.querySelector('.track-player');
+  if (!container) return;
 
-    const html = String.raw;
-    const playerTemplate = html`
+  try {
+    const response = await fetch('/.netlify/functions/fetch-sheet');
+    if (!response.ok) throw new Error(`fetch-sheet responded ${response.status}`);
+    const track = await response.json();
+
+    const artistName = escapeHtml(track.artistName);
+    const trackName = escapeHtml(track.trackName);
+    const trackUrl = escapeHtml(track.trackUrl);
+    const artistImage = escapeHtml(track.artistImage);
+    const dateAdded = escapeHtml(describeDateAdded(track.dateAdded));
+
+    container.innerHTML = `
       <div class="player text-sm sm:w-[300px] border border-black border-solid shadow-[4px_4px_5px_rgba(0,0,0,0.25)]">
         <div class="player-inner p-1 flex gap-2 items-center justify-start">
           <a href="${trackUrl}" class="size-12">
-            <img class="block w-full rounded-sm" src="${artistImage}" alt="Image of ${artistName} album art" />
+            <img class="block w-full rounded-sm" src="${artistImage}" alt="Album art for ${artistName}" />
           </a>
           <a href="${trackUrl}" class="flex no-underline flex-col max-w-[60%]">
             <span class="font-bold text-nowrap text-ellipsis overflow-hidden sm:hover:underline">${artistName}</span>
@@ -45,37 +49,32 @@ axios
           </a>
           <a
             href="${trackUrl}"
+            aria-label="Play ${trackName} on Spotify"
             class="ml-auto text-black sm:hover:text-white sm:hover:bg-black mr-1 border border-black rounded-full size-8 flex justify-center items-center">
             <span class="play-triangle relative right-[-2px]"></span>
           </a>
         </div>
         <div class="p-1 text-xs flex gap-1 items-center border-t-black border-t">
-          <span class=" italic before:content-['>'] before:not-italic">
-            Last track saved ${!!isToday ? 'today' : ''} ${!!isYesterday ? 'yesterday' : ''}
-            ${!isToday & !isYesterday ? dateAddedFormatted : ''}
-          </span>
+          <span class="italic before:content-['>'] before:not-italic">Last track saved ${dateAdded}</span>
         </div>
       </div>
     `;
+  } catch (error) {
+    // Leave the player hidden rather than showing a broken card.
+    console.error('Could not load latest track:', error);
+  }
+}
 
-    const playerContainer = document.querySelector('.track-player');
-    playerContainer.innerHTML = playerTemplate;
-    playerContainer.classList.add('animate-slide-in');
-  })
-  .catch(function (error) {
-    console.log(error);
+// Swap to the "off" favicon while the tab is in the background
+function watchTabVisibility() {
+  const favicon = document.querySelector('link[rel=icon]');
+  if (!favicon) return;
+
+  document.addEventListener('visibilitychange', () => {
+    const folder = document.hidden ? 'src/images/favicon/off' : 'src/images/favicon';
+    favicon.href = `${folder}/favicon-32x32.png`;
   });
+}
 
-window.onload = function () {
-  //Detect if tab is active to change favicon accordingly
-  document.addEventListener('visibilitychange', function () {
-    const isPageActive = !document.hidden;
-    const favicon = document.querySelector('[rel=icon]');
-
-    if (!isPageActive) {
-      favicon.href = './src/images/favicon/off/favicon-32x32.png';
-    } else {
-      favicon.href = './src/images/favicon/favicon-32x32.png';
-    }
-  });
-};
+renderTrackPlayer();
+watchTabVisibility();
